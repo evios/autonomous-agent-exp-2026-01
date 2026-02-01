@@ -1,0 +1,62 @@
+name: Agent Work Session
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # Daily start at 8 AM UTC
+  workflow_dispatch:       # Manual trigger for testing
+  repository_dispatch:     # Triggered by merge to continue cycle
+    types: [agent-next-cycle]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read config and check limits
+        id: check
+        run: |
+          # Read MAX_PRS_PER_DAY from boundaries.md
+          MAX_PRS=$(grep -E "^\| MAX_PRS_PER_DAY" agent/config.md | awk -F'|' '{print $3}' | tr -d ' ')
+          MAX_PRS=${MAX_PRS:-2}
+          echo "max_prs_per_day=$MAX_PRS" >> $GITHUB_OUTPUT
+
+          # Check PR count (default 0 if file missing)
+          TODAY=$(date -u +%Y-%m-%d)
+          CURRENT_COUNT=0
+
+          if [ -f agent/state/current.md ]; then
+            LAST_UPDATE=$(grep -E "^Last Updated:" agent/state/current.md | head -1 || echo "")
+            if [[ "$LAST_UPDATE" == *"$TODAY"* ]]; then
+              PR_LINE=$(grep -E "^PR Count Today:" agent/state/current.md || echo "")
+              CURRENT_COUNT=$(echo "$PR_LINE" | grep -oE "[0-9]+/" | tr -d '/' || echo "0")
+            fi
+          fi
+
+          if [ "$CURRENT_COUNT" -ge "$MAX_PRS" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Daily limit reached ($CURRENT_COUNT/$MAX_PRS). Skipping."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "PR count: $CURRENT_COUNT/$MAX_PRS. Proceeding."
+          fi
+
+      - name: Agent Work Session
+        if: steps.check.outputs.skip != 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are an autonomous agent. Read CLAUDE.md for operating instructions and GOALS.md for objectives.
+
+            Follow the PDCA cycle and do ONE meaningful unit of work.
+
+            After your work, create a PR with your changes (title must start with "[Agent]").
+
+            Max ${{ steps.check.outputs.max_prs_per_day }} PRs per day. Follow boundaries in agent/config.md.
+          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep,WebFetch,WebSearch"
+          timeout_minutes: 30

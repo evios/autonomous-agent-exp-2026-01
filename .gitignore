@@ -1,0 +1,42 @@
+# DEFAULT
+# MAC related
+__MACOSX/
+._.DS_Store/
+.DS_Store
+# PyCharm
+.idea/
+# venv
+venv*/
+**/.venv/
+# Jupyter
+.ipynb_checkpoints/
+# Python
+__pycache__/
+# JS
+node_modules/
+# heavy and deprecated
+tmp/
+*.zip
+*.tar.gz
+*.tgz
+*.iso
+*.bckp
+# Local/Development configs
+/.env
+/.flake8
+/vetur.config.js
+*.localdev.*
+.python-version
+*babel*
+*bckp*
+*.log
+# licenses files
+.terraform/
+.terraform*/
+.terraform.lock.hcl
+*sensitive*
+*.plan.json
+
+# Local
+TASK*.md
+.mcp.json

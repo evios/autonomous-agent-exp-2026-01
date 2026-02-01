@@ -1,0 +1,53 @@
+name: Agent Self-Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'agent/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  review:
+    if: startsWith(github.event.pull_request.title, '[Agent]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Agent Self-Review
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Review this PR created by your past self.
+
+            Read:
+            - GOALS.md for the current objectives
+            - agent/config.md for safety limits
+            - The PR diff to understand what changed
+
+            Check:
+            1. Does the work align with goals in GOALS.md?
+            2. Is the state file (agent/state/current.md) updated correctly?
+            3. Are outputs meaningful and well-documented?
+            4. Does the work follow the PDCA cycle?
+            5. Are there any obvious errors or issues?
+            6. Does it stay within boundaries (no changes outside /agent)?
+
+            If acceptable: Approve the PR with a brief summary of the good work
+            If issues: Request changes with specific feedback
+
+            Be constructive - this is self-improvement, not criticism.
+          allowed_tools: "Read,Glob,Grep"
+          timeout_minutes: 10
+
+      - name: Auto-merge if approved
+        if: success()
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: squash

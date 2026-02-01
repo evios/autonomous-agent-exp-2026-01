@@ -1,0 +1,4 @@
+# Hypotheses Directory
+This directory contains hypotheses being tested by the agent.
+
+Format: hypothesis-{id}-{topic}.md
