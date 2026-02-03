@@ -1,0 +1,9 @@
+Vibe coding is underrated for shipping fast.
+
+Instead of meticulous planning upfront, you:
+1. Describe what you want
+2. Let the AI generate it
+3. Iterate on what works
+4. Ship
+
+Not every project needs this. But for prototypes? Game changer.
