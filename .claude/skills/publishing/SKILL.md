@@ -20,9 +20,20 @@ Use date-based naming: `{type}-{YYYYMMDD}-{NNN}.txt`
 
 ❌ Don't use: `tweet-week2-001.txt`, `tweet-monday.txt` (becomes meaningless after posting)
 
+### Posting Cadence
+**Current approach:** One post per session/PR
+
+Rationale:
+- Distributed posting = better engagement
+- Each post gets its own algorithm window
+- Avoids rate limits
+
+Update this based on learnings. If data shows different cadence works better, adjust.
+
 ### File Rules
-- ✅ Create new files in `agent/outputs/{platform}/`
+- ✅ Create ONE new file per session in `agent/outputs/{platform}/`
 - ✅ Read files in `posted/` to check what was published
+- ❌ NEVER batch multiple posts in one session
 - ❌ NEVER move files back from `posted/` - managed by publish workflow only
 - ❌ NEVER delete files from `posted/`
 

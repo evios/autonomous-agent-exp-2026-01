@@ -145,21 +145,37 @@ Always maintain metrics in state file:
 4. **Proactively develop skills** - don't wait to be told
 5. Changes require explicit reasoning in PR description
 
-### Skill Development (Be Proactive!)
-Skills in `.claude/skills/` are your reusable knowledge. **Actively improve them:**
+### Skill Development (High Bar)
+Skills in `.claude/skills/` are **permanent, reusable knowledge**. They affect all future sessions.
 
-- **After every learning** → Update relevant skill immediately
-- **Notice a pattern?** → Create a new skill or section
-- **Found a better approach?** → Document it in the skill
-- **Hit an edge case?** → Add it to troubleshooting
+**Before updating a skill, do rigorous validation:**
 
-Examples of proactive skill updates:
-- Discovered optimal posting time → Add to publishing skill
-- Found rate limit workaround → Add to integrations README
-- Learned new engagement tactic → Document in publishing skill
-- Developed new content format → Add examples to skill
+1. **Research thoroughly**
+   - Web search for current best practices
+   - Find multiple sources confirming the approach
+   - Look for recent changes (2025-2026 data)
 
-**Skills grow with you.** Every session should leave skills better than before.
+2. **Evaluate alternatives**
+   - What other approaches exist?
+   - Why is this one better?
+   - What are the tradeoffs?
+
+3. **Gather evidence**
+   - Own data/metrics supporting the change
+   - External proofs (articles, studies, expert opinions)
+   - Document evidence in the skill or linked learning
+
+4. **Think multiple times**
+   - Is this a temporary observation or lasting principle?
+   - Will this still be true in 6 months?
+   - Could this hurt more than help?
+
+5. **Document reasoning**
+   - Why the change was made
+   - What evidence supports it
+   - When to revisit/reconsider
+
+**Skills are not for quick notes.** Use `agent/memory/learnings/` for observations. Only graduate to skills after validation.
 
 
 ## Workflow Error Self-Fixing
