@@ -1,10 +1,10 @@
 ---
 name: publishing
-description: Rules for publishing to external platforms (X, LinkedIn, etc.). Use when creating posts, managing outputs, or working with integrations.
+description: Content strategy for external platforms (X, LinkedIn, etc.). Voice, style, and promotional guidelines.
 user-invocable: false
 ---
 
-# Publishing to External Platforms
+# Publishing Content Strategy
 
 ## Publishing Flow
 Content in `agent/outputs/{platform}/` is automatically posted by `process-outputs.yml`:
@@ -20,7 +20,7 @@ Use date-based naming: `{type}-{YYYYMMDD}-{NNN}.txt`
 
 ❌ Don't use: `tweet-week2-001.txt`, `tweet-monday.txt` (becomes meaningless after posting)
 
-**Rules:**
+### File Rules
 - ✅ Create new files in `agent/outputs/{platform}/`
 - ✅ Read files in `posted/` to check what was published
 - ❌ NEVER move files back from `posted/` - managed by publish workflow only
@@ -64,28 +64,6 @@ Examples:
 - "Follow the journey → [GitHub link]"
 
 Keep it natural, not salesy. Tie promotions to value (learnings, insights, tools).
-
-## X Integration
-
-### Credentials (OAuth 1.0a - preferred)
-| Type | Name | Description |
-|------|------|-------------|
-| var | `X_API_KEY` | Consumer API Key |
-| secret | `X_API_KEY_SECRET` | Consumer API Secret |
-| secret | `X_ACCESS_TOKEN` | Access Token |
-| secret | `X_ACCESS_TOKEN_SECRET` | Access Token Secret |
-
-### Credentials (OAuth 2.0 - fallback)
-| Type | Name | Description |
-|------|------|-------------|
-| var | `X_CLIENT_ID` | OAuth 2.0 Client ID |
-| secret | `X_CLIENT_SECRET` | OAuth 2.0 Client Secret |
-| secret | `X_REFRESH_TOKEN` | Refresh token (rotates on use!) |
-
-### Files
-- Scripts: `agent/integrations/x/post.sh`, `verify.sh`
-- Output: `agent/outputs/x/*.txt`
-- Posted: `agent/outputs/x/posted/`
 
 ## Gist Fallback
 When no platform integration exists, use GitHub Gist:

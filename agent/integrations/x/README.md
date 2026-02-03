@@ -2,42 +2,53 @@
 
 Post tweets via X API v2.
 
-## Required Secrets/Vars
+## Authentication Options
+
+### OAuth 1.0a (Preferred)
+Stable tokens that don't expire. Recommended for automation.
+
+| Name | Type | Description |
+|------|------|-------------|
+| `X_API_KEY` | var | Consumer API Key |
+| `X_API_KEY_SECRET` | secret | Consumer API Secret |
+| `X_ACCESS_TOKEN` | secret | Access Token |
+| `X_ACCESS_TOKEN_SECRET` | secret | Access Token Secret |
+
+Setup: Get all 4 from X Developer Portal → Your App → Keys and tokens
+
+### OAuth 2.0 (Fallback)
+⚠️ Refresh token rotates on each use - not recommended for automation.
 
 | Name | Type | Description |
 |------|------|-------------|
 | `X_CLIENT_ID` | var | OAuth 2.0 Client ID |
 | `X_CLIENT_SECRET` | secret | OAuth 2.0 Client Secret |
-| `X_REFRESH_TOKEN` | secret | Refresh token (from auth.sh) |
+| `X_REFRESH_TOKEN` | secret | Refresh token (rotates!) |
 
-## Setup
+## Scripts
 
-1. Run auth flow once locally:
-   ```bash
-   export X_CLIENT_ID="your_client_id"
-   export X_CLIENT_SECRET="your_client_secret"
-   ./auth.sh
-   ```
+- `post.sh` - Posts tweet (tries OAuth 1.0a first, falls back to 2.0)
+- `verify.sh` - Verifies credentials are working
+- `auth_2.0.sh` - OAuth 2.0 authorization flow (one-time setup)
 
-2. Save the `refresh_token` to GitHub secrets as `X_REFRESH_TOKEN`
+## Rate Limits
 
-## Agent Workflow
+- Free tier: 50 tweets per 24 hours
+- Workflow adds 5s delay between posts
+- On 429 error, remaining posts are skipped
 
-1. Agent creates tweet → saves to `agent/outputs/x/tweet-TIMESTAMP.txt`
-2. Workflow reads from `agent/outputs/x/`, posts via `post.sh`
-3. Posted tweets moved to `agent/outputs/x/posted/`
-
-## Manual Usage
+## Usage
 
 ```bash
+# Post a tweet
 ./post.sh "Hello world!"
+
+# Verify credentials
+./verify.sh
 ```
 
-## Token Lifetime
+## Workflow
 
-- Access token: 2 hours (auto-refreshed by post.sh)
-- Refresh token: 6 months
-
-## Note
-
-X may rotate refresh tokens. If posts start failing after ~6 months, re-run `auth.sh`.
+1. Agent creates tweet → `agent/outputs/x/tweet-YYYYMMDD-NNN.txt`
+2. `process-outputs.yml` calls `post.sh` for each file
+3. Posted tweets move to `agent/outputs/x/posted/`

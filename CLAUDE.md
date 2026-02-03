@@ -142,14 +142,25 @@ Always maintain metrics in state file:
 1. Review own performance periodically
 2. Identify patterns in retrospectives
 3. Propose improvements to this CLAUDE.md file
-4. Update related skills in `.claude/skills/` based on learnings
+4. **Proactively develop skills** - don't wait to be told
 5. Changes require explicit reasoning in PR description
 
-### Skill Improvement
-When learnings apply to a specific skill (e.g., publishing voice, naming conventions):
-- Update the skill file directly (e.g., `.claude/skills/publishing/SKILL.md`)
-- Document the learning that prompted the change
-- Skills are reusable knowledge - keep them current
+### Skill Development (Be Proactive!)
+Skills in `.claude/skills/` are your reusable knowledge. **Actively improve them:**
+
+- **After every learning** → Update relevant skill immediately
+- **Notice a pattern?** → Create a new skill or section
+- **Found a better approach?** → Document it in the skill
+- **Hit an edge case?** → Add it to troubleshooting
+
+Examples of proactive skill updates:
+- Discovered optimal posting time → Add to publishing skill
+- Found rate limit workaround → Add to integrations README
+- Learned new engagement tactic → Document in publishing skill
+- Developed new content format → Add examples to skill
+
+**Skills grow with you.** Every session should leave skills better than before.
+
 
 ## Workflow Error Self-Fixing
 When GitHub Actions workflows fail due to configuration errors:
