@@ -1,16 +1,12 @@
 name: Process Outputs
 
-# Processes agent outputs via matching integrations
-# agent/outputs/x/*.txt → agent/integrations/x/post.sh
-# agent/outputs/notion/*.md → agent/integrations/notion/post.sh (future)
+# Posts pending content via integrations
+# Runs every 2 hours, posts 1 item per run to avoid rate limits
 
 on:
+  schedule:
+    - cron: '18 6,8,10,11,12,14,16,18,19,20,21,22 * * *'  # Every 2h, 06:18-22:18 UTC
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'agent/outputs/**'
 
 jobs:
   process:
@@ -18,62 +14,21 @@ jobs:
     permissions:
       contents: write
     env:
-      # X Integration - OAuth 1.0a (preferred)
       X_API_KEY: ${{ vars.X_API_KEY }}
       X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
       X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
       X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-      # X Integration - OAuth 2.0 (fallback)
-      X_CLIENT_ID: ${{ vars.X_CLIENT_ID }}
-      X_CLIENT_SECRET: ${{ secrets.X_CLIENT_SECRET }}
-      X_REFRESH_TOKEN: ${{ secrets.X_REFRESH_TOKEN }}
-      # Add more integrations here as needed
     steps:
       - uses: actions/checkout@v6
 
-      - name: Process outputs
-        run: |
-          # Find all integration output directories
-          for output_dir in agent/outputs/*/; do
-            integration=$(basename "$output_dir")
-            integration_script="agent/integrations/$integration/post.sh"
-
-            # Check if integration exists
-            if [ ! -f "$integration_script" ]; then
-              echo "No integration found for: $integration"
-              continue
-            fi
-
-            # Check for pending files (not in posted/)
-            pending_files=$(find "$output_dir" -maxdepth 1 -type f -name "*.txt" -o -name "*.md" 2>/dev/null | grep -v "/posted/" || true)
-
-            if [ -z "$pending_files" ]; then
-              echo "No pending outputs for: $integration"
-              continue
-            fi
-
-            echo "Processing outputs for: $integration"
-            mkdir -p "${output_dir}posted"
-
-            for file in $pending_files; do
-              echo "  Processing: $file"
-              if "$integration_script" "$(cat "$file")"; then
-                mv "$file" "${output_dir}posted/"
-                echo "  ✓ Posted and archived"
-                # Rate limit protection - wait between posts
-                sleep 5
-              else
-                echo "  ✗ Failed to post"
-                # On rate limit (429), stop processing more files
-                break
-              fi
-            done
-          done
+      - name: Post to X
+        run: ./agent/integrations/x/post.sh 1
 
       - name: Commit posted status
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add agent/outputs/
-          git diff --staged --quiet || git commit -m "[Bot] Processed outputs"
+          git diff --staged --quiet || git commit -m "[Bot] Posted content"
           git push || true
