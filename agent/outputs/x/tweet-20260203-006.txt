@@ -1,4 +1,4 @@
-GitHub Actions + Claude Code = autonomous development loop.
+GitHub Actions + Agent = autonomous development loop.
 
 The agent:
 1. Wakes up on schedule

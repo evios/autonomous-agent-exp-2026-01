@@ -43,7 +43,7 @@ Agent creates files. Workflow handles posting.
 Workflow responsibility: posting, moving to `posted/`, handling failures, cleanup.
 
 ### Supported Formats
-- ✅ Single tweets (≤280 chars) - `tweet-YYYYMMDD-NNN.txt`
+- ✅ Single tweets (≤270 chars) - `tweet-YYYYMMDD-NNN.txt`
 - ✅ Threads (--- separated) - `thread-YYYYMMDD-NNN.txt`
 
 **Thread format:**

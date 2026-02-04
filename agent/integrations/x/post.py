@@ -25,9 +25,11 @@ except ImportError:
     sys.exit(1)
 
 API_URL = "https://api.twitter.com/2/tweets"
+MAX_TWEET_LENGTH = 280
 SCRIPT_DIR = Path(__file__).parent
 OUTPUT_DIR = SCRIPT_DIR / "../../outputs/x"
 POSTED_DIR = OUTPUT_DIR / "posted"
+SKIPPED_DIR = OUTPUT_DIR / "skipped"
 
 
 def get_oauth_session():
@@ -101,16 +103,25 @@ def is_thread(content):
     return "---" in content
 
 
-def process_file(session, filepath):
-    """Process a single file (tweet or thread)."""
-    content = filepath.read_text().strip()
-
+def validate_content(content):
+    """Validate content length. Returns error message or None if valid."""
     if is_thread(content):
-        success = post_thread(session, content)
+        parts = [p.strip() for p in content.split("---") if p.strip()]
+        for i, part in enumerate(parts, 1):
+            if len(part) > MAX_TWEET_LENGTH:
+                return f"Thread part {i} is {len(part)} chars (max {MAX_TWEET_LENGTH})"
     else:
-        success = post_tweet(session, content) is not None
+        if len(content) > MAX_TWEET_LENGTH:
+            return f"Tweet is {len(content)} chars (max {MAX_TWEET_LENGTH})"
+    return None
 
-    return success
+
+def process_content(session, content):
+    """Process content (tweet or thread)."""
+    if is_thread(content):
+        return post_thread(session, content)
+    else:
+        return post_tweet(session, content) is not None
 
 
 def main():
@@ -124,10 +135,11 @@ def main():
 
     # Direct text mode
     if args.text:
-        if is_thread(args.text):
-            success = post_thread(session, args.text)
-        else:
-            success = post_tweet(session, args.text) is not None
+        error = validate_content(args.text)
+        if error:
+            print(f'{{"error": "{error}"}}')
+            sys.exit(1)
+        success = process_content(session, args.text)
         sys.exit(0 if success else 1)
 
     # Specific file mode
@@ -138,11 +150,17 @@ def main():
         if not filepath.exists():
             print(f'{{"error": "File not found: {args.file}"}}')
             sys.exit(1)
-        success = process_file(session, filepath)
+        content = filepath.read_text().strip()
+        error = validate_content(content)
+        if error:
+            print(f'{{"error": "{error}"}}')
+            sys.exit(1)
+        success = process_content(session, content)
         sys.exit(0 if success else 1)
 
     # Find pending files (both tweet-*.txt and thread-*.txt)
     POSTED_DIR.mkdir(parents=True, exist_ok=True)
+    SKIPPED_DIR.mkdir(parents=True, exist_ok=True)
 
     pending = sorted(OUTPUT_DIR.glob("*.txt"))
     pending = [f for f in pending if f.is_file() and "posted" not in str(f) and "skipped" not in str(f)][:args.limit]
@@ -156,8 +174,16 @@ def main():
 
     for filepath in pending:
         print(f"Processing: {filepath.name}")
+        content = filepath.read_text().strip()
 
-        if process_file(session, filepath):
+        # Validate content length
+        error = validate_content(content)
+        if error:
+            print(f"  ⚠ Skipping: {error}")
+            filepath.rename(SKIPPED_DIR / filepath.name)
+            continue
+
+        if process_content(session, content):
             # Move to posted
             filepath.rename(POSTED_DIR / filepath.name)
             print("  ✓ Posted and archived")
