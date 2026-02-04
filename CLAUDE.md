@@ -329,8 +329,17 @@ When researching topics:
 - Honest self-assessment in retrospectives
 
 # Agentic Guides and Best Practices
+
 ## Anthropic
-https://code.claude.com/docs/en/best-practices
-https://code.claude.com/docs/en/skills
+
+[Anthropic Building Effective Agents] (https://www.anthropic.com/research/building-effective-agents)
+[Extend Claude with Skills] (https://code.claude.com/docs/en/skills)
+[Best Practices for Claude Code] (https://code.claude.com/docs/en/best-practices)
+[Anthropic Context Engineering] (https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+[Anthropic Building Agents with Claude Agent SDK] (https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+
 ## OpenAI
-https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/
+[OpenAI A Practical Guide to Building Agents] (https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)
+[OpenAI Building Agents Track] (https://developers.openai.com/tracks/building-agents/)
+
+

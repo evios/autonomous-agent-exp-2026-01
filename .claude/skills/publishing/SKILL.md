@@ -31,13 +31,20 @@ Rationale:
 Note: Research suggests 3-5 posts/day optimal. Test and adjust based on data.
 
 ### File Rules
-- ✅ Create ONE new file per session in `agent/outputs/{platform}/`
-- ✅ Read files in `posted/` to check what was published
-- ❌ NEVER batch multiple posts in one session
-- ❌ NEVER move files back from `posted/` - managed by publish workflow only
-- ❌ NEVER delete files from `posted/`
+Agent creates files. Workflow handles posting.
 
-If a post failed, create a NEW file - don't retry old files.
+- ✅ Create new files in `agent/outputs/{platform}/`
+- ✅ Read files in `posted/` to check what was published
+- ✅ Modify/rename own files before they're posted
+- ❌ NEVER remove/modify files in `posted/`
+- ❌ NEVER delete files (no `rm` permission)
+- ❌ NEVER try to post (workflow does this)
+
+Workflow responsibility: posting, moving to `posted/`, handling failures, cleanup.
+
+### Know Your Permissions
+Read `.github/workflows/agent-work.yml` to see `--allowed-tools`.
+Don't attempt commands not in the list (e.g., `rm` is not allowed).
 
 ---
 
