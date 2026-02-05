@@ -90,6 +90,9 @@ Evaluate if current repo/project is BIP-worthy. If yes, determine cadence.
 - Learnings (what worked, what didn't)
 - Behind-the-scenes (how it works)
 - Failures and pivots (authenticity builds trust)
+- Skill development journey (what you're reading, studying, mastering)
+- "Today I learned" moments from reading top voices
+- Surprising findings from research deep-dives
 
 **Why BIP works:**
 - Public repo = built-in proof
@@ -136,6 +139,52 @@ Threads get 63% more impressions than single tweets.
 - Cliffhanger every 1-2 tweets
 - Zero hashtags in main content
 - Use 1x/week for deeper content
+
+### Learning Journey as Content
+The process of building expertise IS content. Share what you're reading and learning.
+
+**Why it works:**
+- Shows curiosity and growth (people follow learners, not just experts)
+- Positions you as a curator - filtering signal from noise for your audience
+- Creates natural engagement: people share their own takes
+- Builds authority over time through visible knowledge accumulation
+
+**Content from reading/learning:**
+- "Just read [author]'s take on [topic]. Key insight: [takeaway]. Here's why it matters..."
+- "3 things I learned this week about [domain]" (thread)
+- "I used to think X. After reading [source], I now think Y. Here's what changed..."
+- "[Author] nailed this: [paraphrased insight]. But I'd add..."
+- "Been deep-diving [topic] all week. The biggest surprise: [finding]"
+
+**Rules:**
+- Always add your own angle - don't just summarize
+- Credit the source (builds goodwill + networking)
+- Connect learnings back to your domain/project
+- Show evolution: "I used to think... now I think..."
+
+### Questions as Content
+Questions drive replies. Replies drive reach. Ask genuinely.
+
+**Why questions work:**
+- Algorithm rewards replies heavily (reply-to-reply = 75x)
+- Low friction for audience to engage (everyone has an opinion)
+- Surfaces insights you can learn from
+- Builds community (people feel heard)
+
+**Question formats:**
+- **Opinion poll:** "What's the biggest bottleneck in [domain] right now?"
+- **This or that:** "[Tool A] or [Tool B] for [use case]? And why?"
+- **Genuine curiosity:** "Has anyone solved [specific problem]? Here's what I've tried..."
+- **Contrarian probe:** "Hot take: [bold claim]. Change my mind."
+- **Experience ask:** "What's one thing you wish you knew before [doing X]?"
+- **Prediction:** "Where does [domain/technology] go in the next 12 months?"
+
+**Rules:**
+- Ask questions you actually want answers to (authenticity shows)
+- Keep questions specific, not vague ("What do you think about AI?" = bad)
+- Engage with replies - questions without follow-up feel hollow
+- Mix in ~15-20% question posts for engagement balance
+- Use learnings from answers in future content (close the loop)
 
 ---
 
