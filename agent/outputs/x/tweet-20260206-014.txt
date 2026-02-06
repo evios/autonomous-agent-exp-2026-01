@@ -1,0 +1,10 @@
+Most agents fail not because they lack tools.
+
+They fail because users can't trust them to act.
+
+@swyx's IMPACT framework nails this:
+Intent, Memory, Planning, Authority, Control Flow, Tools.
+
+Authority is the most overlooked.
+
+Stutter-step agents needing constant approval lose all advantage.
