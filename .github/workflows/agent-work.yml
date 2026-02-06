@@ -13,6 +13,10 @@ on:
   #  paths:
   #    - 'agent/state/**'
 
+# Security: All actions pinned to commit SHAs to prevent tag hijacking attacks.
+# A compromised tag (e.g. @v1) could inject malicious code into workflows.
+# Update SHAs manually when upgrading action versions.
+
 # Prevent parallel runs - only one agent session at a time
 concurrency:
   group: agent-work
@@ -27,7 +31,7 @@ jobs:
       issues: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Read config and check limits
         id: check
@@ -56,6 +60,7 @@ jobs:
           fi
 
           echo "current_count=$CURRENT_COUNT" >> $GITHUB_OUTPUT
+          echo "today=$TODAY" >> $GITHUB_OUTPUT
 
           if [ "$CURRENT_COUNT" -ge "$MAX_PRS" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
@@ -67,7 +72,7 @@ jobs:
 
       - name: Agent Work Session
         if: steps.check.outputs.skip != 'true'
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@1ab477dde68ac9be1126aa7775191f02c3070b07 # v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.ANTHROPIC_API_KEY }}
           allowed_bots: "github-actions[bot]"
@@ -75,6 +80,8 @@ jobs:
             You are an autonomous agent. Read CLAUDE.md for operating instructions and GOALS.md for objectives.
 
             Follow the PDCA cycle and do ONE meaningful unit of work.
+
+            Today's date: ${{ steps.check.outputs.today }}
 
             CRITICAL RULES:
             1. ALWAYS create a PR if you modified/created ANY files - your work is LOST if you don't commit and push

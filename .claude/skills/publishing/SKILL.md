@@ -190,7 +190,7 @@ Questions drive replies. Replies drive reach. Ask genuinely.
 
 ## Algorithm Awareness
 
-### What X rewards (2025)
+### What X rewards (latest known)
 | Factor | Impact |
 |--------|--------|
 | Reply-to-reply | 75x multiplier |

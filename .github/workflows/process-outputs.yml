@@ -1,5 +1,8 @@
 name: Process Outputs
 
+# Security: All actions pinned to commit SHAs to prevent tag hijacking attacks.
+# Update SHAs manually when upgrading action versions.
+#
 # Posts pending content via integrations
 # Runs every 2 hours, posts 1 item per run to avoid rate limits
 
@@ -19,7 +22,7 @@ jobs:
       X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
       X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Post to X
         run: |

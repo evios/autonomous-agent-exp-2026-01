@@ -38,7 +38,7 @@ For current goal, research:
 
 Use web search for fresh data:
 ```
-WebSearch: "X Twitter growth strategies 2026"
+WebSearch: "X Twitter growth strategies {current_year OR previous_year}"
 WebSearch: "AI developer Twitter accounts successful"
 ```
 
@@ -73,7 +73,7 @@ The best content comes from deep knowledge. Systematically read and learn from t
 Identify ~20 leading voices in the domain (based on current GOALS.md niche).
 
 **How to find them:**
-- Web search: `"best {niche} blogs 2026"`, `"top {niche} Twitter accounts"`
+- Web search: `"best {niche} blogs {current_year OR previous_year}"`, `"top {niche} Twitter accounts"`
 - Look at who top accounts follow and retweet
 - Check curated lists (awesome-lists, blog rolls, newsletter recommendations)
 - Note authors cited repeatedly across sources
