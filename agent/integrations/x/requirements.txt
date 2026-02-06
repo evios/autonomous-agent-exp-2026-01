@@ -1,1 +1,1 @@
-requests-oauthlib
+requests-oauthlib==2.0.0 --hash=sha256:7dd8a5c40426b779b0868c404bdef9768deccf22749cde15852df527e6269b36

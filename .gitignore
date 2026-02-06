@@ -26,6 +26,7 @@ tmp/
 /.flake8
 /vetur.config.js
 *.localdev.*
+*.local.*
 .python-version
 *babel*
 *bckp*

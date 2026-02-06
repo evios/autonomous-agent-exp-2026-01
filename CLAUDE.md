@@ -342,5 +342,3 @@ When researching topics:
 ## OpenAI
 [OpenAI A Practical Guide to Building Agents] (https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/)
 [OpenAI Building Agents Track] (https://developers.openai.com/tracks/building-agents/)
-
-

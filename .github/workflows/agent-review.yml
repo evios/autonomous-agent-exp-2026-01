@@ -16,7 +16,7 @@ on:
   pull_request:
     types: [opened, synchronize]
     paths-ignore:
-      - '.github/workflows/agent-review.yml'
+      - '.github/workflows/**'
 
 jobs:
   review:

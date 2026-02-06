@@ -144,9 +144,10 @@ def main():
 
     # Specific file mode
     if args.file:
-        filepath = Path(args.file)
-        if not filepath.exists():
-            filepath = OUTPUT_DIR / args.file
+        filepath = (OUTPUT_DIR / args.file).resolve()
+        if not str(filepath).startswith(str(OUTPUT_DIR.resolve())):
+            print('{"error": "File path must be within output directory"}')
+            sys.exit(1)
         if not filepath.exists():
             print(f'{{"error": "File not found: {args.file}"}}')
             sys.exit(1)
