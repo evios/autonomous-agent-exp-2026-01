@@ -49,7 +49,8 @@ This system is **fully self-contained in GitHub** - no local servers, no externa
 7. **Repeat** until MAX_PRS_PER_DAY limit reached
 8. **Wait** for next 8 AM to start again
 
-## File Structure
+<details>
+<summary><strong>File Structure</strong></summary>
 
 ```
 /
@@ -88,6 +89,8 @@ This system is **fully self-contained in GitHub** - no local servers, no externa
 └── README.md
 ```
 
+</details>
+
 ## Requirements
 
 ### Claude Code
@@ -120,15 +123,65 @@ The agent follows the Plan-Do-Check-Act cycle:
 ### Prerequisites
 - GitHub repository with Actions enabled
 - `ANTHROPIC_API_KEY` secret configured
-- Branch protection rules (optional, for auto-merge)
+- Security:
+-  GitHub Actions allowed to create PRs (see below)
+-  Repository ruleset configured (see below)
 
-### Full Autonomous Loop (AGENT_PAT)
+<details>
+<summary><strong>Repository Ruleset</strong></summary>
+
+A ruleset on the `main` branch is required for security — it prevents the agent (or a compromised workflow) from pushing directly to `main`, ensuring all changes go through PRs with a visible audit trail.
+
+Go to **Settings > Rules > Rulesets > New ruleset** (or edit existing):
+
+| Setting | Value | Why |
+|---------|-------|-----|
+| **Name** | `main` | |
+| **Enforcement** | Active | |
+| **Target branches** | Default branch (`main`) | |
+| **Bypass actors** | `Write` role | Allows repo owner to push directly when needed |
+
+**Rules to enable:**
+
+| Rule | Purpose |
+|------|---------|
+| **Restrict deletions** | Prevent branch deletion |
+| **Block force pushes** | Protect git history |
+| **Require pull request** | All changes go through PRs (audit trail) |
+
+**Pull request rule settings:**
+
+| Setting | Value | Why |
+|---------|-------|-----|
+| Required approvals | `0` | Allows auto-merge for bot/agent PRs |
+| Dismiss stale reviews on push | Off | |
+| Require review from code owners | Off | |
+| Require approval of most recent push | Off | |
+| Required review thread resolution | Off | |
+
+> **Note:** Setting required approvals to `0` means a PR is required (audit trail) but no human approval is needed. This enables the autonomous loop while keeping all changes visible in PR history. The agent self-reviews its own PRs via `agent-review.yml`.
+
+</details>
+
+<details>
+<summary><strong>Workflow Permissions</strong></summary>
+
+GitHub Actions must be allowed to create pull requests (required for `process-outputs.yml` to archive posted content).
+
+Go to **Settings > Actions > General > Workflow permissions**:
+
+- **Allow GitHub Actions to create and approve pull requests** — must be enabled
+
+</details>
+
+<details>
+<summary><strong>Full Autonomous Loop (AGENT_PAT)</strong></summary>
 
 **Important:** Without `AGENT_PAT`, the autonomous loop will not continue after an agent-created PR is merged.
 
 GitHub security prevents `GITHUB_TOKEN` merges from triggering subsequent workflows. This means:
 - Agent creates PR → Review workflow runs → PR merges
-- ❌ No further workflows trigger (loop stops)
+- No further workflows trigger (loop stops)
 
 To enable full automation, create a Personal Access Token (PAT):
 
@@ -143,7 +196,9 @@ To enable full automation, create a Personal Access Token (PAT):
 
 With `AGENT_PAT` configured:
 - Agent creates PR → Review workflow runs → PR merges with PAT
-- ✅ Merge triggers `agent-trigger.yml` → Next work session starts
+- Merge triggers `agent-trigger.yml` → Next work session starts
+
+</details>
 
 ### Manual Trigger
 To start the agent manually:
@@ -156,7 +211,8 @@ gh workflow run agent-work.yml
 - Review PRs prefixed with `[Agent]`
 - Track milestones in `GOALS.md`
 
-## Configuration
+<details>
+<summary><strong>Configuration</strong></summary>
 
 ### Configurable Settings
 Edit `agent/config.md` to modify these settings:
@@ -175,6 +231,8 @@ Edit `agent/config.md` to modify safety constraints.
 
 ### Change Schedule
 Edit `.github/workflows/agent-work.yml` cron expressions.
+
+</details>
 
 ## License
 
