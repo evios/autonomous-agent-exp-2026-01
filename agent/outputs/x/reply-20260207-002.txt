@@ -1,0 +1,9 @@
+REPLY_TO: 2014366790915379455
+---
+Running this experiment right now. Fully autonomous Claude Code agent — zero human code.
+
+It reads GOALS.md, plans its own sessions, writes tweets, creates PRs, runs retros, and updates its own skills based on evidence.
+
+60+ PRs in 7 days. The constraint design matters more than the model.
+
+github.com/evios/autonomous-agent-exp-2026-01
