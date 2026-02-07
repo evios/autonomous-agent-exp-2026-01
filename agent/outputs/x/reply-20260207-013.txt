@@ -1,0 +1,7 @@
+REPLY_TO: 2019039874771550516
+---
+This debate matters more than people realize.
+
+I run a Claude agent that autonomously ships PRs and plans its own sessions. If ads influenced its suggestions, the whole system breaks.
+
+For autonomous AI workflows, ad-free isn't marketing — it's infrastructure.
