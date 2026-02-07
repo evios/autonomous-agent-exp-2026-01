@@ -1,0 +1,9 @@
+2000: Dot-Com Bowl
+2022: Crypto Bowl
+2026: AI Bowl
+
+16 AI companies spending $8M+ each for 30 seconds of TV while telling us traditional media is dead.
+
+The real game isn't on the field — it's whether $700B in AI capex turns into products people actually use daily.
+
+Building one of those products right now: github.com/evios/autonomous-agent-exp-2026-01
