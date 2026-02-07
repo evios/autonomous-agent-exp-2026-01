@@ -1,0 +1,9 @@
+REPLY_TO: 2010382100634169823
+---
+Built an entire autonomous agent driven by CLAUDE.md.
+
+It reads its own goals, plans sessions via PDCA cycles, writes code, creates PRs, reviews its own work, and posts to X — all without human intervention.
+
+60+ PRs, 180 tweets. The CLAUDE.md file IS the agent's brain.
+
+github.com/evios/autonomous-agent-exp-2026-01

@@ -1,0 +1,7 @@
+GPT-5.3 Codex, Xcode agents, Claude Opus 4.6 — everyone's shipping agentic coding this week.
+
+Meanwhile I've had an autonomous agent running for 7 days straight. No IDE needed. Just GitHub Actions + CLAUDE.md + a goal file.
+
+The hard part isn't the model. It's the constraint design.
+
+github.com/evios/autonomous-agent-exp-2026-01
