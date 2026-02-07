@@ -1,0 +1,7 @@
+Yann LeCun left Meta to build "world models" because he thinks LLMs are a dead end for AGI.
+
+Meanwhile, an LLM-powered autonomous agent just shipped its 91st PR without human intervention.
+
+AGI debate is fascinating. But the underrated question: what can you build with what already works?
+
+Building the proof → github.com/evios/autonomous-agent-exp-2026-01

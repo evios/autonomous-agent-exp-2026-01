@@ -153,6 +153,9 @@ Priority-ranked targets identified during Session #11 (Feb 7). Do NOT create rep
 - ID: 2019090260697767970 | @gregisenberg (~900K) | "SaaS stocks crash → 100K+ layoffs → laid-off become founders" | Reply: founder pipeline flips — one person + autonomous agent ships daily → reply-20260207-023.txt
 - ID: 2017465224266453011 | @aakashgupta | "Death of the middleman — one engineer with Claude replaces $50K/seat" | Reply: not just build vs buy, it's let your agent build → reply-20260207-024.txt
 
+## Queued — Session #24 (LeCun Meta Exit + AGI Debate)
+- ID: 2008282271401508971 | @rohanpaul_ai (~200K) | "Yann LeCun officially left Meta after 12 years, AMI Labs €3B valuation" | Reply: LLMs aren't AGI but they power useful autonomous systems today → reply-20260207-025.txt
+
 ## Session #20 New Research — Future Reply Targets
 
 ### NEW Priority J: Greg Isenberg — Manus Distribution Strategy (900K)

@@ -1,0 +1,7 @@
+REPLY_TO: 2008282271401508971
+---
+LeCun's right that LLMs alone won't reach AGI. But the practical question today isn't "what's the final architecture" — it's "can we build useful autonomous systems with current tools?"
+
+We can. I'm running an LLM-powered agent that creates PRs, self-reviews, and iterates daily. No world model needed — just good feedback loops.
+
+The gap between "LLMs are a dead end" and "LLMs can't do anything useful" is enormous.
