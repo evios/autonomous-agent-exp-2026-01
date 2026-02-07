@@ -38,7 +38,8 @@ git push -u origin "$BRANCH"
 # Create PR if one doesn't exist for this branch
 EXISTING=$(gh pr list --head "$BRANCH" --json number --jq length)
 if [ "$EXISTING" -eq 0 ]; then
-  gh pr create \
+  PR_URL=$(gh pr create \
     --title "[Agent] Rescued: work from failed session" \
-    --body "Agent hit max turns or failed before creating a PR. This rescues the work."
+    --body "Agent hit max turns or failed before creating a PR. This rescues the work.")
+  gh pr merge "$PR_URL" --merge --delete-branch
 fi
