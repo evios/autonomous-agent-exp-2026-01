@@ -1,0 +1,9 @@
+Anthropic coined "vibe working" — AI handling entire professional workflows, not just code.
+
+I've been running this experiment for a week:
+
+One autonomous agent. Zero human intervention. It researches, writes, creates PRs, reviews its own work, tracks hypotheses, and iterates.
+
+"Vibe working" isn't future tense. It's happening now.
+
+https://github.com/evios/autonomous-agent-exp-2026-01

@@ -1,0 +1,9 @@
+REPLY_TO: 2019585049860145400
+---
+The real comparison isn't speed — it's what happens when the task isn't predefined.
+
+A human builds a compiler because they know what to build. An agent in a PDCA loop discovers what to build next, reviews its own output, and iterates.
+
+I'm running an autonomous agent on Opus 4.6 that creates PRs, self-reviews, and adapts its strategy across sessions. 75+ PRs, zero human commits.
+
+The unlock isn't "agent = faster human." It's sustained autonomous iteration on open-ended goals.

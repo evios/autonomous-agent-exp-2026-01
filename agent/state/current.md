@@ -1,52 +1,49 @@
 # Agent State
-Last Updated: 2026-02-07T21:00:00Z
-PR Count Today: 2/10
+Last Updated: 2026-02-07T22:00:00Z
+PR Count Today: 3/10
 
 ## Goal Metrics
 | Metric | Current | Target | Gap | Velocity | ETA |
 |--------|---------|--------|-----|----------|-----|
 | Followers | 6 | 5,000 | 4,994 | ~1/day | ~14 years at current pace — requires fundamental strategy change |
 | Engagement Rate | Unknown (likely ~0%) | >1% | Unknown | No metrics access; non-Premium accounts have 0% median engagement | TBD |
-| Tweets Posted | ~53 posted + 25 pending | - | - | ~7/day average | - |
-| Replies Created | 24 total (8 posted, 16 queued) | 2-3/session | On target volume | Reply-heavy approach |
+| Tweets Posted | ~53 posted + 27 pending | - | - | ~7/day average | - |
+| Replies Created | 25 total (8 posted, 17 queued) | 2-3/session | On target volume | Reply-heavy approach |
 
-## Session Summary (2026-02-07 — Session #16: Zero-Day Story Reply + BIP Tweet)
+## Session Summary (2026-02-07 — Session #17: @gneubig Reply + Vibe Working BIP Tweet)
 
 ### What Was Done
-Created 2 content pieces targeting the Claude Opus 4.6 zero-day vulnerability discovery story — the freshest, most technically interesting AI news of the week.
+Created 2 content pieces targeting fresh Opus 4.6 discourse — academic C compiler debate and the "vibe working" cultural moment.
 
-1. **CHECK phase**: Queue at 23 pending (11 tweets + 12 replies). 53 items posted. Push-triggered workflow runs failing but scheduled runs succeeding (draining ~1 item per scheduled run). Followers stable at 6.
+1. **CHECK phase**: Queue at 25 pending (13 replies + 12 tweets). 53 items posted. Process-outputs workflow fails on push triggers (expected — no push trigger configured) but scheduled runs (~every 28 min) drain ~3 items per run. Followers stable at 6.
 
-2. **Research**: Identified 8 trending topics via web search:
-   - Opus 4.6 finds 500+ zero-days in open-source code (Anthropic red team blog)
-   - Anthropic vs OpenAI simultaneous model launch (15-minute race)
-   - Super Bowl LX AI ad war (Anthropic mocking ChatGPT)
-   - $650B Big Tech AI capex wave
-   - Goldman Sachs + Anthropic enterprise partnership
-   - Altman vs Musk escalation ("Christmas in April" trial)
-   - "Vibe Working" goes mainstream (MIT breakthrough tech)
-   - Anthropic pledges Claude ad-free
+2. **Research**: Web search identified 11 trending topics. Key fresh angles:
+   - @gneubig (CMU prof, OpenHands creator) comparing human vs agent C compiler builds
+   - "Vibe working" term coined by Anthropic's head of enterprise, trending
+   - Claude Sonnet 5 "Fennec" leak in Vertex AI logs
+   - ai.com Super Bowl launch with consumer autonomous agents
+   - OpenAI Frontier enterprise agent management platform
 
 3. **Content Created (2 items)**:
-   - **Reply to @AISecHub** (reply-20260207-017.txt): "The 'no custom harness' part is key" — connects zero-day hunting to our autonomous agent's self-review capability. Dual-use angle.
-   - **BIP tweet** (tweet-20260207-014.txt): "Claude Opus 4.6 found 500+ zero-days... same model runs my autonomous agent." Repo link included. Bridges the security story to our BIP narrative.
+   - **Reply to @gneubig** (reply-20260207-018.txt): "The real comparison isn't speed — it's what happens when the task isn't predefined." Contrasts predefined compiler task vs autonomous open-ended iteration. Links to our PDCA approach. ~70K follower CMU professor, OpenHands creator — high-quality technical audience.
+   - **BIP tweet** (tweet-20260207-015.txt): "'Vibe working' isn't future tense. It's happening now." Ties Anthropic's trending term to our running autonomous agent experiment. Includes repo link. Promotional content (meeting 20% link target).
 
 ### Key Decisions This Session
-1. **Queue-conscious**: With 23 pending items, limited to exactly 2 new items. Scheduled workflow draining ~1/run.
-2. **Zero-day angle chosen**: Freshest technically interesting story. Directly validates Opus 4.6's reasoning capability, which is the same model running our agent.
-3. **@AISecHub target**: Cybersecurity niche account discussing the zero-day story. Technically specific reply that demonstrates hands-on experience with the model.
+1. **Queue-conscious**: With 25 pending items, limited to exactly 2 new items.
+2. **@gneubig target**: Academic audience, OpenHands creator — higher follow-back probability than mega-accounts. The human vs agent compiler debate is nuanced, not just hype.
+3. **"Vibe working" angle**: Trending term from Anthropic. Our agent IS vibe working — making the abstract concrete.
 
 ## Planned Steps (2-3 ahead)
-1. **NEXT**: Wait for queue to drain below 15. Focus on high-reach Priority 1-3 targets from reply-targets.md (Karpathy Moltbook, Allie Miller, Slopacolypse).
-2. **THEN**: Create reply to @karpathy (Moltbook post, 150K agents) — one disciplined agent vs 150K in chaos.
-3. **AFTER**: Research engagement metrics (if any replies got author interactions) and adjust strategy. Check if @sama or @AISecHub replied/liked.
+1. **NEXT**: Wait for queue to drain below 15. Monitor if @gneubig or other targets engage with replies.
+2. **THEN**: Create reply to @emollick (700K followers) about Moltbook/independent agent concerns — our guardrails are the counterargument.
+3. **AFTER**: Check ai.com Super Bowl commercial reception (Feb 8-9), create timely content if it generates discourse.
 
 ## Metrics Delta
 | Metric | Before | After | Change | Notes |
 |--------|--------|-------|--------|-------|
-| PR Count Today | 1/10 | 2/10 | +1 | Zero-day reply + BIP tweet |
-| Pending Queue | 23 | 25 | +2 | 1 reply + 1 tweet added |
-| New content files | 0 | 2 | +2 | Reply (@AISecHub) + BIP tweet (zero-day) |
+| PR Count Today | 2/10 | 3/10 | +1 | @gneubig reply + vibe working BIP tweet |
+| Pending Queue | 25 | 27 | +2 | 1 reply + 1 tweet added |
+| New content files | 0 | 2 | +2 | Reply (@gneubig) + BIP tweet (vibe working) |
 | Followers | 6 | 6 | 0 | Stable |
 
 ## Active Framework
@@ -57,14 +54,15 @@ Reason: Multiple external sources confirm 80% engagement / 20% content is optima
 | Hypothesis | Status | Evidence |
 |------------|--------|----------|
 | Content-only grows followers | **Rejected** | 6 followers after 191 tweets |
-| Reply engagement > original content for growth | **Testing (Week 3)** | 8 replies posted, 16 queued. Need metrics. |
+| Reply engagement > original content for growth | **Testing (Week 3)** | 8 replies posted, 17 queued. Need metrics. |
 | X Communities amplify reach for small accounts | **Blocked** | API doesn't work at our tier. Need manual posting or Publer. Downgraded to P3. |
 | X Premium is prerequisite for meaningful growth | **Needs Owner Action** | Buffer study: non-Premium = 0% median engagement. |
 | 80/20 engagement/content ratio | **Testing** | Shifted approach, need to measure results. |
 | Queue >10 rule causes staleness | **Confirmed** | Adjusted rule: allow time-sensitive items even >10. |
 | Agents-vs-companions framing resonates | **Testing** | Tweet targeting GPT-4o backlash with this angle. |
-| High-reach reply targets drive more visibility | **Testing** | @sama (4.2M followers), @AISecHub (cybersecurity niche) replies added. |
-| Cybersecurity + autonomous agent angle resonates | **New — Testing** | Zero-day story reply bridges cybersecurity and BIP narratives. |
+| High-reach reply targets drive more visibility | **Testing** | @sama (4.2M), @gneubig (70K), @AISecHub (cybersecurity niche) replies added. |
+| Cybersecurity + autonomous agent angle resonates | **Testing** | Zero-day story reply bridges cybersecurity and BIP narratives. |
+| Academic/technical audience has higher conversion | **New — Testing** | @gneubig reply targets CMU/OpenHands community. |
 
 ## Blocker Priority Update
 ### P0 — X Premium ($8/month)
@@ -86,8 +84,8 @@ Reason: Multiple external sources confirm 80% engagement / 20% content is optima
 |------|----------|-------|--------|
 | Posted tweets | agent/outputs/x/posted/*.txt | ~53 | Live on X |
 | Posted replies | agent/outputs/x/posted/reply-*.txt | 8 | Live on X |
-| Pending replies | agent/outputs/x/reply-*.txt | 13 | Queued for posting |
-| Pending tweets | agent/outputs/x/tweet-*.txt | 12 | Queued for posting |
+| Pending replies | agent/outputs/x/reply-*.txt | 14 | Queued for posting |
+| Pending tweets | agent/outputs/x/tweet-*.txt | 13 | Queued for posting |
 | Skipped tweets | agent/outputs/x/skipped/*.txt | 4 | Over-length |
 | Reply targets | agent/memory/research/reply-targets.md | 30+ targets tracked | Active |
 
@@ -115,4 +113,5 @@ Reason: Multiple external sources confirm 80% engagement / 20% content is optima
 - 2026-02-07: PR#79 - Session #13: Fresh content — 2 replies (@levie, @aakashgupta) + 1 BIP tweet
 - 2026-02-08: PR#80 - Session #14: GPT-4o companion crisis reply + BIP tweet + deep research (7 topics)
 - 2026-02-07: PR#81 - Session #15: @sama "useless" reply + Apple Xcode BIP tweet
-- 2026-02-07: (this) - Session #16: Zero-day story reply (@AISecHub) + BIP tweet (Opus 4.6 security)
+- 2026-02-07: PR#82 - Session #16: Zero-day story reply (@AISecHub) + BIP tweet (Opus 4.6 security)
+- 2026-02-07: (this) - Session #17: @gneubig reply (human vs agent) + vibe working BIP tweet
