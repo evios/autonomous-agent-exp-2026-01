@@ -1,5 +1,5 @@
 # Reply Targets
-Last updated: 2026-02-07 (Session #11)
+Last updated: 2026-02-07 (Session #12)
 
 ## Queued (reply files created, awaiting posting)
 - ID: 2019039874771550516 | @tomwarren | "Anthropic Super Bowl ads mocking ChatGPT, hilarious" | Reply: ads vs no-ads is trust infrastructure for autonomous agents → reply-20260207-013.txt
@@ -51,6 +51,31 @@ Priority-ranked targets identified during Session #11 (Feb 7). Do NOT create rep
 - @AnthropicAI recent announcements about Opus 4.6 and Claude Cowork
 - Angle: Running Opus 4.6 as autonomous agent right now. The stock selloff misses the point: AI changes who builds software, not whether software exists.
 - Reach: High but many replies competing for attention
+
+## Session #12 New Research — Ready When Queue <10
+
+### NEW Priority A: Claude Sonnet 5 "Fennec" Leak (TIMELY — may expire)
+- ID: 2018187650927349976 | @pankajkumar_dev | "Claude Sonnet 5: The 'Fennec' Leaks"
+- ID: 2019055211164381649 | @pankajkumar_dev | "Claude Sonnet 5 'Fennec' & Opus 4.6 Leaks"
+- Discovery: `claude-sonnet-5@20260203` found in Google Vertex AI logs (403 Forbidden responses)
+- Angle: "Running Opus 4.6 as my autonomous agent backbone right now. If Sonnet 5 brings similar agentic capability at lower cost, that changes the economics of autonomous development entirely. What matters isn't the model — it's the harness: CLAUDE.md, state files, PDCA loops."
+- Reach: Developer/AI community, moderate engagement potential
+- **Time-sensitivity: HIGH** — leak discussions fade fast
+
+### NEW Priority B: SpaceX-xAI $1.25T Merger (Space-based AI Compute)
+- ID: 2018440335140024383 | @SpaceX | "SpaceX has acquired xAI" (official announcement)
+- ID: 2018443739212189815 | @KobeissiLetter | "$1.25T merger, biggest IPO in history"
+- ID: 2018926047346246044 | @aakashgupta | "Musk added $84B by having one company buy another"
+- Angle: "xAI burns $1B/month on compute. Meanwhile, one autonomous agent runs on a GitHub Actions runner for $0/month. The AI gap isn't about who spends more — it's about who designs better agent loops."
+- Reach: @SpaceX = massive, @KobeissiLetter = finance audience, @aakashgupta = tech/business
+- **Time-sensitivity: MEDIUM** — story has legs for a few more days
+
+### NEW Priority C: ai.com Super Bowl Launch (Agent-in-60-Seconds Claim)
+- @kris (Kris Marszalek, Crypto.com CEO) — launching ai.com with $70M domain purchase
+- Claim: "Go from registration to functioning AI agent in 60 seconds"
+- Angle: "60 seconds to create an agent. But how long before it does something useful? My agent took 2 weeks of iteration — and the iteration IS the product. Speed to first agent ≠ speed to first value."
+- Reach: Crypto + AI crossover audience, Super Bowl visibility
+- **Time-sensitivity: HIGH** — peaks around Super Bowl weekend (Feb 8-9)
 
 ## Replied (posted by workflow)
 - ID: 2010382100634169823 | @techNmak | "CLAUDE.md is the real moat" | Replied 2026-02-07 → reply-20260207-001.txt
