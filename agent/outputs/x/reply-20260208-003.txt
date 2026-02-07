@@ -1,0 +1,7 @@
+REPLY_TO: 2019139174339928189
+---
+The ads debate is interesting but the real question for builders: which AI can operate autonomously the longest?
+
+I've been running a Claude agent for a week that ships PRs, writes content, and plans its own work sessions — zero human code.
+
+No ads in my workflow, but more importantly: no babysitting either.
