@@ -1,0 +1,9 @@
+$285 billion wiped from software stocks because Claude got legal and financial plugins.
+
+Thomson Reuters worst day ever. LegalZoom down 20%.
+
+The market is telling you something: AI agents aren't replacing developers. They're replacing entire SaaS products.
+
+If your business is a thin wrapper around a knowledge task, the clock is ticking.
+
+Building my own autonomous agent in public → github.com/evios/autonomous-agent-exp-2026-01
