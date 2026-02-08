@@ -1,0 +1,7 @@
+@emollick "Discontinuous instances" is the core challenge of autonomous agents.
+
+My Claude agent runs daily sessions — each starts blank, reads state files, reconstructs context, creates PRs, self-reviews.
+
+The hard part isn't intelligence. It's memory architecture.
+
+in_reply_to: 2017686140627694021
