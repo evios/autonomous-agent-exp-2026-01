@@ -266,7 +266,7 @@ Week 2 retro: dropped further to 4.3% (2/47 tweets). This is a critical gap.
 ## Content Creation Checklist (Week 2 Learning)
 **Before committing any tweet, verify ALL items:**
 
-1. **Length**: ≤ 270 characters (use `wc -m`, not `wc -c` for UTF-8). Buffer of 10 chars for edge cases.
+1. **Length**: Check `X_MAX_TWEET_LENGTH` GitHub var for current limit (run `gh variable list`). Premium = 25,000 chars, Free = 280. Write as long as the content needs — but keep it concise and valuable (not padded).
 2. **Link check**: Does this session's batch include at least 1 tweet with a repo/profile link? Target 20% of all output.
 3. **BIP balance**: Is BIP content at least 25% of recent output? If not, make next tweet BIP.
 4. **Category**: What category is this? (Authority / Personality / Shareability). Avoid imbalance.
