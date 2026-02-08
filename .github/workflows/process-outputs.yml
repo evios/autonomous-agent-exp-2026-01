@@ -30,7 +30,7 @@ jobs:
       - name: Post to X
         run: |
           pip install -q -r agent/integrations/x/requirements.txt
-          python agent/integrations/x/post.py --limit ${{ vars.X_POSTS_PER_RUN || '3' }}
+          python agent/integrations/x/post.py --limit-tweets ${{ vars.X_TWEETS_PER_RUN || '3' }} --limit-replies ${{ vars.X_REPLIES_PER_RUN || '3' }}
 
       - name: Commit posted status via PR
         if: always()

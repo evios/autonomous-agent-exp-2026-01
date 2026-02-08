@@ -3,10 +3,10 @@
 Post tweets and threads to X.
 
 Usage:
-    ./post.py                     # Post 1 pending file
-    ./post.py --limit 3           # Post up to 3 files
-    ./post.py --text "hello"      # Post text directly
-    ./post.py --file thread.txt   # Post specific file
+    ./post.py                              # Post 1 tweet + 1 reply
+    ./post.py --limit-tweets 3 --limit-replies 3  # Post up to 3 of each
+    ./post.py --text "hello"               # Post text directly
+    ./post.py --file thread.txt            # Post specific file
 
 Environment:
     X_API_KEY, X_API_KEY_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET
@@ -169,7 +169,8 @@ def process_content(session, content):
 
 def main():
     parser = argparse.ArgumentParser(description="Post tweets and threads to X")
-    parser.add_argument("--limit", type=int, default=1, help="Max files to post (default: 1)")
+    parser.add_argument("--limit-tweets", type=int, default=1, help="Max tweets/threads to post (default: 1)")
+    parser.add_argument("--limit-replies", type=int, default=1, help="Max replies to post (default: 1)")
     parser.add_argument("--text", type=str, help="Post text directly")
     parser.add_argument("--file", type=str, help="Post specific file")
     args = parser.parse_args()
@@ -210,16 +211,22 @@ def main():
             sys.exit(1)
         sys.exit(0 if success else 1)
 
-    # Find pending files (both tweet-*.txt and thread-*.txt)
+    # Find pending files, split by type with separate limits
     POSTED_DIR.mkdir(parents=True, exist_ok=True)
     SKIPPED_DIR.mkdir(parents=True, exist_ok=True)
 
-    pending = sorted(OUTPUT_DIR.glob("*.txt"))
-    pending = [f for f in pending if f.is_file() and "posted" not in str(f) and "skipped" not in str(f)][:args.limit]
+    all_pending = sorted(OUTPUT_DIR.glob("*.txt"))
+    all_pending = [f for f in all_pending if f.is_file() and "posted" not in str(f) and "skipped" not in str(f)]
+
+    replies = [f for f in all_pending if f.name.startswith("reply-")][:args.limit_replies]
+    tweets = [f for f in all_pending if not f.name.startswith("reply-")][:args.limit_tweets]
+    pending = tweets + replies
 
     if not pending:
         print("No pending files")
         sys.exit(0)
+
+    print(f"Queue: {len(tweets)} tweets, {len(replies)} replies")
 
     posted = 0
     failed = False
@@ -237,7 +244,6 @@ def main():
 
         try:
             if process_content(session, content):
-                # Move to posted
                 filepath.rename(POSTED_DIR / filepath.name)
                 print("  ✓ Posted and archived")
                 posted += 1
@@ -247,10 +253,10 @@ def main():
                 break
         except RateLimitError as e:
             print(f"\nWARNING: {e}")
-            print(f"Posted {posted} of {args.limit} before rate limit.")
+            print(f"Posted {posted} before rate limit.")
             sys.exit(1)
 
-    print(f"Posted: {posted}/{args.limit}")
+    print(f"Posted: {posted} ({len(tweets)} tweets, {len(replies)} replies queued)")
     sys.exit(1 if failed else 0)
 
 
