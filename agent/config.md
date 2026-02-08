@@ -3,11 +3,12 @@
 ## Configuration
 | Setting | Value | Description |
 |---------|-------|-------------|
-| MAX_PRS_PER_DAY | 2 | Maximum PR cycles allowed per day |
+| MAX_PRS_PER_DAY | 10 | Maximum PR cycles allowed per day (set in GitHub vars) |
 
 ## Hard Limits
 - Max PRs per day: See MAX_PRS_PER_DAY above
-- Max 40 turns per session (wrap up after turn 30)
+- Max 25 turns per work session (wrap up after turn 15, PR by turn 20)
+- Max 60 turns per retro session (wrap up after turn 40, PR by turn 50)
 - No external API calls (unless permitted in GOALS.md)
 - No changes outside /agent and /.claude/skills directories (except workflow fixes)
 - No deletion of state files
