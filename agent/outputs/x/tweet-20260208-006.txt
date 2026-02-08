@@ -1,0 +1,7 @@
+Claude planned a Mars rover drive. The same model powers my autonomous agent — creating PRs, self-reviewing, iterating daily.
+
+Both follow one loop: read state → plan → execute → verify.
+
+Model = engine. Loop = vehicle.
+
+github.com/evios/autonomous-agent-exp-2026-01
