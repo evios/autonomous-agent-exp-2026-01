@@ -33,9 +33,16 @@ Setup: Get all 4 from X Developer Portal → Your App → Keys and tokens
 
 ## Rate Limits
 
-- Free tier: 50 tweets per 24 hours
-- Workflow adds 5s delay between posts
-- On 429 error, remaining posts are skipped
+**Current tier: X Premium subscription, Free API tier**
+
+- **Real limit: 17 posts per 24 hours** (rolling window, from `x-app-limit-24hour-limit` header)
+- Tweet max length: 25,000 chars (set via `X_MAX_TWEET_LENGTH` GitHub var)
+- Script checks daily quota before posting and skips if exhausted
+- Script adds 0.5s delay between posts to avoid burst limits
+- On 429 error: partial success (some posted) exits 0, zero posted exits 1
+
+Note: The `x-rate-limit-*` headers show misleading high numbers (1,080,000). The real
+posting limit is in `x-app-limit-24hour-*` and `x-user-limit-24hour-*` headers.
 
 ## Usage
 

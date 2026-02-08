@@ -4,12 +4,12 @@ name: Process Outputs
 # Update SHAs manually when upgrading action versions.
 #
 # Posts pending content via integrations
-# Runs every 2 hours, posts 1 item per run to avoid rate limits
+# Runs every 2 hours, posts 1 tweet + 1 reply per run (Free API tier: 17 posts/24hrs)
 
 on:
   schedule:
-    - cron: '*/28 13-23 * * *'  # ~Every 28 min, 08:00-18:59 US Eastern (UTC-5)
-    - cron: '*/28 0-3 * * *'    # ~Every 28 min, 19:00-22:59 US Eastern (UTC-5)
+    - cron: '0 13,15,17,19,21,23 * * *'  # Every 2h, 08:00-18:00 US Eastern (UTC-5)
+    - cron: '0 1,3 * * *'                # Every 2h, 19:00-22:00 US Eastern (UTC-5)
   workflow_dispatch:
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
       - name: Post to X
         run: |
           pip install -q -r agent/integrations/x/requirements.txt
-          python agent/integrations/x/post.py --limit-tweets ${{ vars.X_TWEETS_PER_RUN || '3' }} --limit-replies ${{ vars.X_REPLIES_PER_RUN || '3' }}
+          python agent/integrations/x/post.py --limit-tweets ${{ vars.X_TWEETS_PER_RUN || '1' }} --limit-replies ${{ vars.X_REPLIES_PER_RUN || '1' }}
 
       - name: Commit posted status via PR
         if: always()

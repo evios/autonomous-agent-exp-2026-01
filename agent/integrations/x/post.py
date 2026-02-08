@@ -65,21 +65,21 @@ def post_tweet(session, text, reply_to=None):
 
     response = session.post(API_URL, json=payload)
 
-    # Log rate limit status
-    limit = response.headers.get("x-rate-limit-limit")
-    remaining = response.headers.get("x-rate-limit-remaining")
-    reset = response.headers.get("x-rate-limit-reset")
-    if remaining and limit:
-        print(f"  Rate limit: {remaining}/{limit} remaining", end="")
-        if reset:
-            from datetime import datetime, timezone
-            reset_time = datetime.fromtimestamp(int(reset), tz=timezone.utc).strftime("%H:%M:%S UTC")
+    # Log rate limit status (use 24hr app/user limits, not the misleading x-rate-limit-* headers)
+    from datetime import datetime, timezone
+    daily_remaining = response.headers.get("x-app-limit-24hour-remaining")
+    daily_limit = response.headers.get("x-app-limit-24hour-limit")
+    daily_reset = response.headers.get("x-app-limit-24hour-reset")
+    if daily_remaining and daily_limit:
+        print(f"  Daily limit: {daily_remaining}/{daily_limit} remaining", end="")
+        if daily_reset:
+            reset_time = datetime.fromtimestamp(int(daily_reset), tz=timezone.utc).strftime("%H:%M:%S UTC")
             print(f" (resets {reset_time})", end="")
         print()
 
     if response.status_code == 429:
         body = response.text[:500] if response.text else "(empty body)"
-        raise RateLimitError(f"X API rate limit hit (429). Body: {body}")
+        raise RateLimitError(f"X API rate limit hit (429). {daily_remaining or '?'}/{daily_limit or '?'} daily posts remaining. Body: {body}")
 
     try:
         data = response.json()
@@ -90,7 +90,7 @@ def post_tweet(session, text, reply_to=None):
     print(json.dumps(data))
 
     if "data" in data and "id" in data["data"]:
-        time.sleep(2)  # Avoid burst rate limits
+        time.sleep(0.5)  # Avoid burst rate limits
         return data["data"]["id"]
     return None
 
@@ -227,6 +227,21 @@ def main():
     if not pending:
         print("No pending files")
         sys.exit(0)
+
+    # Pre-flight: check daily quota before posting
+    preflight = session.post(API_URL, json={"text": ""})  # Will fail but returns headers
+    daily_remaining = preflight.headers.get("x-app-limit-24hour-remaining")
+    daily_limit = preflight.headers.get("x-app-limit-24hour-limit")
+    daily_reset = preflight.headers.get("x-app-limit-24hour-reset")
+    if daily_remaining is not None and int(daily_remaining) == 0:
+        from datetime import datetime, timezone
+        reset_str = ""
+        if daily_reset:
+            reset_str = datetime.fromtimestamp(int(daily_reset), tz=timezone.utc).strftime("%H:%M:%S UTC")
+        print(f"Daily limit exhausted (0/{daily_limit}). Resets at {reset_str}. Skipping.")
+        sys.exit(1)
+    if daily_remaining is not None:
+        print(f"Daily quota: {daily_remaining}/{daily_limit} remaining")
 
     print(f"Queue: {len(tweets)} tweets, {len(replies)} replies")
 
