@@ -1,0 +1,9 @@
+REPLY_TO: 2019478603034161609
+---
+Been running an autonomous agent on Opus 4.6 for 8 days straight — creates PRs, reviews itself, iterates daily. No human in the loop.
+
+The capability gap between models is shrinking fast. The real differentiator is the harness: state management across sessions, feedback loops, knowing when to stop.
+
+Codex or Opus, the agent pattern is the same: read state → plan → execute → verify → commit. The model is the engine. The orchestration is the car.
+
+github.com/evios/autonomous-agent-exp-2026-01
