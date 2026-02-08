@@ -90,8 +90,7 @@ jobs:
 
             CONTENT TARGET: Create 5-8 content pieces per session (mix of tweets, replies, threads).
 
-            TURN BUDGET:
-            - You have 25 turns total. Be efficient.
+            TURN BUDGET (you have 25 turns — finish early, do not use all of them):
             - Turns 1-8: read state, research, discover reply targets.
             - Turns 8-15: create output files (tweets, replies, research docs). Aim for 5-8 pieces.
             - Turns 15-20: commit and create your PR.
@@ -111,7 +110,7 @@ jobs:
             Follow boundaries in agent/config.md.
           claude_args: |
             --model ${{ vars.CLAUDE_WORK_MODEL || 'claude-sonnet-4-5-20250929' }}
-            --max-turns 25
+            --max-turns 50
             --allowed-tools "Bash(git:*),Bash(gh api:*),Bash(gh issue:*),Bash(gh pr:*),Bash(gh gist:*),Bash(gh run:*),Bash(gh variable:*),Bash(mkdir:*),Bash(mv:*),Bash(ls:*),Bash(cp:*),Bash(touch:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(grep:*),Bash(find:*),Bash(sort:*),Bash(diff:*),Bash(date:*),Bash(echo:*),Bash(printf:*),Bash(cut:*),Bash(tr:*),Bash(uniq:*),Bash(xargs:*),Bash(tee:*),Bash(sed:*),Bash(awk:*),Bash(jq:*),Bash(basename:*),Bash(dirname:*),Bash(realpath:*),Bash(stat:*),Bash(lsof:*),Read,Write,Edit,Glob,Grep,WebFetch,WebSearch"
 
       - name: Agent Weekly Retrospective
@@ -146,12 +145,12 @@ jobs:
             4. Be honest and specific in analysis - vague retros are useless
             5. STOP IMMEDIATELY after creating your PR. Do not continue working. Your session is done.
 
-            TURN BUDGET:
-            - You have 60 turns total. Research/read for at most 25 turns.
-            - By turn 25: start writing retro doc and skill updates.
-            - By turn 40: start committing and creating your PR.
-            - By turn 50: you MUST have created a PR. No exceptions.
-            - If you have nothing to commit by turn 40, commit what you have — partial work > lost work.
+            TURN BUDGET (you have 50 turns — finish early, do not use all of them):
+            - Turns 1-20: research, read PRs, gather data, analyze patterns.
+            - Turns 20-35: write retro doc and skill updates.
+            - Turns 35-40: commit and create your PR.
+            - By turn 40: you MUST have created a PR. No exceptions.
+            - If you have nothing to commit by turn 35, commit what you have — partial work > lost work.
 
             Steps to create PR:
             ```bash
@@ -166,7 +165,7 @@ jobs:
             Follow boundaries in agent/config.md.
           claude_args: |
             --model ${{ vars.CLAUDE_RETRO_MODEL || 'claude-opus-4-6' }}
-            --max-turns 60
+            --max-turns 80
             --allowed-tools "Bash(git:*),Bash(gh api:*),Bash(gh issue:*),Bash(gh pr:*),Bash(gh gist:*),Bash(gh run:*),Bash(gh variable:*),Bash(mkdir:*),Bash(mv:*),Bash(ls:*),Bash(cp:*),Bash(touch:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(grep:*),Bash(find:*),Bash(sort:*),Bash(diff:*),Bash(date:*),Bash(echo:*),Bash(printf:*),Bash(cut:*),Bash(tr:*),Bash(uniq:*),Bash(xargs:*),Bash(tee:*),Bash(sed:*),Bash(awk:*),Bash(jq:*),Bash(basename:*),Bash(dirname:*),Bash(realpath:*),Bash(stat:*),Bash(lsof:*),Read,Write,Edit,Glob,Grep,WebFetch,WebSearch"
 
       - name: Rescue unpushed work

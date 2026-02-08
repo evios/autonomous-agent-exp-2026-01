@@ -77,7 +77,8 @@ def post_tweet(session, text, reply_to=None):
         print()
 
     if response.status_code == 429:
-        raise RateLimitError("X API rate limit hit (429). Content remains queued for next run.")
+        body = response.text[:500] if response.text else "(empty body)"
+        raise RateLimitError(f"X API rate limit hit (429). Body: {body}")
 
     try:
         data = response.json()
