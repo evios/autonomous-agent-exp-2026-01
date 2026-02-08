@@ -64,6 +64,18 @@ def post_tweet(session, text, reply_to=None):
 
     response = session.post(API_URL, json=payload)
 
+    # Log rate limit status
+    limit = response.headers.get("x-rate-limit-limit")
+    remaining = response.headers.get("x-rate-limit-remaining")
+    reset = response.headers.get("x-rate-limit-reset")
+    if remaining and limit:
+        print(f"  Rate limit: {remaining}/{limit} remaining", end="")
+        if reset:
+            from datetime import datetime, timezone
+            reset_time = datetime.fromtimestamp(int(reset), tz=timezone.utc).strftime("%H:%M:%S UTC")
+            print(f" (resets {reset_time})", end="")
+        print()
+
     if response.status_code == 429:
         raise RateLimitError("X API rate limit hit (429). Content remains queued for next run.")
 
