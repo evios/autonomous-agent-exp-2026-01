@@ -256,7 +256,7 @@ def main():
         except RateLimitError as e:
             print(f"\nWARNING: {e}")
             print(f"Posted {posted} before rate limit. Remaining files will be retried next run.")
-            sys.exit(0)
+            sys.exit(0 if posted > 0 else 1)
 
     print(f"Posted: {posted} ({len(tweets)} tweets, {len(replies)} replies queued)")
     sys.exit(1 if failed else 0)
