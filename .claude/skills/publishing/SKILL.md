@@ -72,6 +72,25 @@ Don't attempt commands not in the list (e.g., `rm` is not allowed).
 
 ---
 
+## Value Rule: Never Mix Value Types
+
+A post delivers value in one of two ways. **Pick one per post. Never both.**
+
+| Type | Value source | Example |
+|------|-------------|---------|
+| **Content value** | The post itself teaches, explains, or provokes thought. Reader gets value from the content (text, image, video). | "Opus 4.6 and GPT-5.3 Codex dropped within minutes. Here's what convergence means for agentic coding..." |
+| **Outcome value** | The link/promotion gives the reader something useful — a tool, repo, template, resource. | "I open-sourced the PDCA loop + state management setup I use for autonomous agents → [repo link]" |
+
+**Why not both?** Mixing them dilutes each. The insight gets cut short to fit the promo. The promo feels forced because it's wedged into someone else's topic. The reader gets half an insight and half an ad.
+
+❌ "Big news just dropped. [1 sentence]. Anyway here's my repo → [link]"
+(Insight cut short. Promo doesn't follow from the hook. Reader gets neither.)
+
+✅ Content value: "Big news just dropped. Here's what it means, why it matters, and what most people miss."
+✅ Outcome value: "I built X that solves Y. Here's the repo → [link]"
+
+---
+
 ## Growth Strategies
 
 ### Build in Public (BIP)
