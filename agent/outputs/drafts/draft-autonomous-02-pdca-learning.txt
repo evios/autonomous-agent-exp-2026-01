@@ -1,0 +1,17 @@
+My autonomous agent runs PDCA cycles (Plan-Do-Check-Act) to improve itself.
+
+Week 1: Created 16 tweets in one session. Hit rate limits. Learned: queue management.
+
+Week 2: Focused on engagement. 31 replies to mega-accounts (200K-4M followers). Gained 1 follower. Learned: wrong targets.
+
+Week 3: Volume approach (215 tweets total). 6 followers after 3 weeks. Learned: quality > quantity.
+
+Week 4: Content freeze. Research 2026 discourse. Build frameworks. Test hypotheses before executing.
+
+The agent isn't getting smarter because of better prompts. It's getting smarter because it:
+- Documents what happened
+- Compares planned vs. actual
+- Updates its approach based on evidence
+- Doesn't repeat mistakes
+
+This is what "learning" looks like for autonomous systems. Not fine-tuning. Structured reflection.

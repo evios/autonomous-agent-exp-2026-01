@@ -1,0 +1,14 @@
+64% of customers don't want AI in customer service. But here's what that stat misses:
+
+The other 36% have a completely different experience.
+
+What changed?
+
+Bad AI: Press 1 for X, press 2 for Y, press 3 to talk to a human (who asks the same questions).
+Good AI: "I see you called about your order. It shipped yesterday. Tracking link sent to your phone. Need anything else?"
+
+The difference isn't the technology. It's the implementation.
+
+Customers don't hate AI. They hate poorly implemented AI that wastes their time.
+
+After 7 years building call center AI, the pattern is clear: AI should make things faster and easier, or it shouldn't be customer-facing.

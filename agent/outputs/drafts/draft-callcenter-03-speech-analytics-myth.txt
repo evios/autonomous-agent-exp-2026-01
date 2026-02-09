@@ -1,0 +1,20 @@
+Speech analytics = Big Brother surveillance. Right?
+
+Wrong. Here's what 7 years building speech analytics taught me:
+
+The fear: AI monitors agents, dings them for mistakes, kills morale.
+
+The reality: Best contact centers use it for coaching, not controlling.
+
+How:
+- Flag coaching moments (not gotchas): "Great empathy on this call"
+- Surface what top performers do differently
+- Automate QA so managers coach instead of score
+- Analyze 100% of calls vs. 2% manual sampling
+
+Result: Agents get real-time feedback, not quarterly reviews based on 5 cherry-picked calls.
+
+Speech analytics done right = performance coaching at scale.
+Done wrong = morale killer.
+
+The difference? Implementation, not technology.

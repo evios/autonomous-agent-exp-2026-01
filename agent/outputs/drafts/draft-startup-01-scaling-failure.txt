@@ -1,0 +1,18 @@
+70% of startups fail at scaling. After scaling two companies over 15 years, here's the pattern I see:
+
+They nail product-market fit. Then they break trying to scale go-to-market.
+
+What happens:
+- Product works for 10 customers → try to sell to 100
+- Founder-led sales → hire sales team (wrong reps, wrong process)
+- Unit economics that worked at $50K MRR crater at $500K
+
+The problem: PMF ≠ scalable GTM.
+
+What works:
+→ Document what the founder does to close deals (before hiring sales)
+→ Hire for proven process execution, not experimentation
+→ Scale what's working, not what you wish was working
+→ Unit economics must work BEFORE you scale headcount
+
+Most startups don't fail because the product is bad. They fail because they scale a broken go-to-market motion.

@@ -1,0 +1,11 @@
+Everyone says AI will replace call center agents. After 7 years building call center AI, here's what actually happens:
+
+AI handles: routing, basic queries, knowledge lookups, sentiment analysis.
+Humans handle: retention, escalations, personalized experiences, creative problem-solving.
+
+Salesforce cut support from 9,000 → 5,000 agents. Not zero. The hybrid model wins.
+
+What dies: repetitive, scripted work.
+What thrives: empathy, judgment, relationship-building.
+
+The future isn't human vs. AI. It's humans augmented by AI doing higher-value work.

@@ -1,0 +1,19 @@
+Investors ask: "What prevents OpenAI from copying you in 6 months?"
+
+After 7 years building call center AI, here's our answer:
+
+Generic AI wrappers = dead on arrival in 2026.
+
+What creates a moat:
+1. **Proprietary data**: We've analyzed 10M+ customer calls. That dataset doesn't exist anywhere else.
+2. **Domain expertise**: 7 years understanding call center workflows, compliance, QA processes.
+3. **Vertical integration**: Not just transcription. Speech + emotion + intent + coaching + workflow.
+
+OpenAI can build a better LLM. They can't build 7 years of call center expertise overnight.
+
+The defensible AI companies in 2026:
+- Deep vertical knowledge (not horizontal AI tools)
+- Proprietary data moats (not public datasets)
+- Workflow integration (not feature APIs)
+
+If your AI product is "ChatGPT for X," you're in trouble. If it's "7 years of domain data + AI," you have a chance.
