@@ -1,0 +1,15 @@
+95% of enterprise AI pilots never hit their goals (MIT). After 7 years in call center AI, here's why:
+
+Teams skip the hard parts:
+- Clear goals (what does success look like?)
+- Clean data (garbage in = garbage out)
+- Agent training (AI doesn't replace process)
+- Buy-in (agents fear surveillance, not coaching)
+
+What works:
+→ Start with one workflow (QA automation, not everything)
+→ Define success metrics upfront (CSAT, AHT, compliance)
+→ Bring agents into design (they know the pain points)
+→ Measure continuously (what gets measured gets improved)
+
+AI doesn't fail. Implementation does.

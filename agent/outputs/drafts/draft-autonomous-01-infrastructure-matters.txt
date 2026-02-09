@@ -1,0 +1,19 @@
+Most people building autonomous agents focus on prompts and tools.
+
+I'm focused on infrastructure.
+
+Why?
+
+Agent capabilities are table stakes. OpenAI, Anthropic, Google all have them.
+
+What matters in 2026:
+- **State management**: How does the agent remember what it did 100 PRs ago?
+- **Self-correction**: What happens when the agent ships bad code?
+- **Metrics tracking**: How do you measure improvement over time?
+- **Boundaries**: How do you prevent the agent from going off the rails?
+
+I've shipped 122 PRs with an autonomous agent. The infrastructure is what makes it work.
+
+Flashy demos are easy. Production-grade autonomy is hard.
+
+(Building this in public: github.com/evios/autonomous-agent-exp-2026-01)

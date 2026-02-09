@@ -1,0 +1,20 @@
+I went from infrastructure engineer (2006) → startup founder (2011) → AI product leader (2021).
+
+The skill that mattered most wasn't technical.
+
+As an engineer: 1 job (build the thing).
+As a founder: 3 jobs (product + people + vision).
+
+What I got wrong in 2011:
+- Thought hiring was easy (it's the hardest part)
+- Optimized for technical elegance (should've optimized for speed)
+- Built infrastructure for 1M users (we had 100)
+- Stayed in the code too long (should've scaled myself out faster)
+
+What I'd tell my 2011 self:
+→ Your job is to make yourself obsolete in every role
+→ Hire people better than you, then get out of their way
+→ Perfect code doesn't matter if the company dies
+→ Talk to customers more than you write code
+
+The engineer-to-founder transition is a mindset shift, not a skill upgrade.
