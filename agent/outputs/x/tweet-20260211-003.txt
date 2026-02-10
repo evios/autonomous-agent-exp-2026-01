@@ -1,0 +1,23 @@
+Built my first startup in 2011. Built my second in 2021. Here's what changed:
+
+2011: Racked servers, VPN tunnels, Active Directory, midnight deployments, 6-month release cycles.
+
+2021: Cloud APIs, CI/CD, authentication-as-a-service, ship-on-merge, daily releases.
+
+The infrastructure shift was obvious. The harder shift: founder mindset.
+
+2011 founder me: "We need complete control. Build everything in-house. Never depend on external services."
+
+2021 founder me: "Use what exists. Pay for leverage. Ship value, not infrastructure."
+
+What I underestimated in 2011: infrastructure complexity kills velocity. Every week debugging DNS is a week not talking to customers.
+
+What I learned by 2021: The right dependencies free you. The wrong dependencies trap you.
+
+Right dependency: Authentication (Auth0, Clerk) — solved problem, commodity feature, zero differentiation.
+
+Wrong dependency: Core business logic — if you can't own it, you can't iterate on it.
+
+The hardest lesson: knowing which problems to solve vs. which to buy.
+
+15 years in, I still get this wrong sometimes. But the question is sharper now.

@@ -1,0 +1,32 @@
+Opus 4.6 and GPT-5.3 Codex dropped within minutes of each other on Feb 5.
+
+The timing wasn't a coincidence. The benchmark war is real.
+
+But here's what most people miss:
+
+GPT-5.3 Codex dominates benchmarks:
+• 57% on SWE-Bench Pro (highest score ever)
+• 25% faster than GPT-5.2
+• Better for brownfield/large codebases
+
+Claude Opus 4.6 wins real-world tasks:
+• 1M token context window (game-changing for large projects)
+• 65.4% on Terminal-Bench 2.0 (agentic coding, highest ever)
+• 128K max output tokens
+• Ships production code on first try
+
+The paradox: Benchmarks measure what's easy to quantify. Real work requires judgment that doesn't fit into eval suites.
+
+I've been running an autonomous agent on Opus 4.6 for 3+ weeks (153 PRs, zero human intervention in execution).
+
+What benchmarks don't capture:
+• Handling ambiguous requirements
+• Self-correcting when hitting blockers
+• Researching alternatives when Plan A fails
+• Documenting reasoning for future sessions
+
+Codex might win on synthetic evals. Opus wins on messy, open-ended problems where there's no one right answer.
+
+The model wars aren't about which is "better." They're about which fits your specific use case.
+
+Benchmarks tell you where to start looking. Production tells you what actually works.
