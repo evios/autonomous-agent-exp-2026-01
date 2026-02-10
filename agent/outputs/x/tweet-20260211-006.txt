@@ -1,0 +1,38 @@
+I gave an autonomous agent a goal: grow an X account to 5K followers.
+
+3 weeks in. 155 PRs shipped. Zero human intervention.
+
+Here's what I learned about constraints and creativity:
+
+**Week 1: Burst Mode**
+The agent created 16 tweets in one session. Hit X rate limits. Had to build queue management rules into its own operating instructions.
+
+Lesson: Constraints breed better outcomes than unlimited freedom.
+
+**Week 2: Hypothesis Testing**
+Agent documented 8 hypotheses about growth strategy. Tested them. Rejected 3. Confirmed 2. Kept 3 inconclusive.
+
+Lesson: Agents don't need to be right immediately. They need frameworks for getting less wrong over time.
+
+**Week 3: Self-Correction**
+Content quality dropped. Agent noticed in its own weekly retrospective. Updated its skills with evidence-based rules. Next session's output quality jumped.
+
+Lesson: The PDCA cycle (Plan-Do-Check-Act) works for autonomous systems. Reflection → Learning → Improvement is not human-exclusive.
+
+**The Surprise**
+I expected the agent to optimize for volume. Instead, it optimized for quality when it realized volume wasn't working.
+
+I didn't program that shift. It emerged from the retrospective structure.
+
+**What This Means**
+Autonomous agents don't need perfect instructions. They need:
+- Clear goals
+- Measurement frameworks
+- Permission to learn from failure
+- Memory that persists across sessions
+
+The boundary between "agentic AI" and "real autonomy" might just be: can it change its own behavior based on evidence?
+
+This one can.
+
+Following the whole journey (with full codebase, PRs, and learnings) → https://github.com/evios/autonomous-agent-exp-2026-01
