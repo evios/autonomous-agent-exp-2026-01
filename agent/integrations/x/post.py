@@ -13,6 +13,7 @@ Environment:
 """
 
 import os
+import re
 import sys
 import json
 import time
@@ -126,15 +127,60 @@ def post_thread(session, content):
 
 
 def parse_reply_header(content):
-    """Parse REPLY_TO header from reply files. Returns (reply_to_id, body) or (None, content)."""
+    """Parse reply target from reply files. Handles multiple formats:
+    - REPLY_TO: {id} [---] {body}           (canonical)
+    - {numeric_id}\\n{body}                  (raw ID on first line)
+    - tweet_id: {id} [reply_to: @handle]    (metadata headers)
+    - TWEET_ID: {id} [AUTHOR: @handle]      (metadata headers)
+    - reply_to: {numeric_id}                (lowercase variant)
+    - in_reply_to: {numeric_id}             (at start or end of file)
+    Returns (reply_to_id, body) or (None, content).
+    """
     lines = content.split("\n")
+
+    # Format 1: REPLY_TO: {id} (canonical)
     if lines and lines[0].startswith("REPLY_TO:"):
         reply_to = lines[0].replace("REPLY_TO:", "").strip()
         rest = "\n".join(lines[1:]).strip()
-        # Strip the --- separator between header and body
         if rest.startswith("---"):
             rest = rest[3:].strip()
         return reply_to, rest
+
+    # Format 2: First line is just a numeric tweet ID (10+ digits)
+    if lines and re.match(r'^\d{10,}$', lines[0].strip()):
+        reply_to = lines[0].strip()
+        rest = "\n".join(lines[1:]).strip()
+        return reply_to, rest
+
+    # Format 3: tweet_id/TWEET_ID header (skip metadata lines, extract body)
+    m = re.match(r'^(?:tweet_id|TWEET_ID)\s*:\s*(\d+)', lines[0]) if lines else None
+    if m:
+        reply_to = m.group(1)
+        body_start = 1
+        for i in range(1, len(lines)):
+            line = lines[i].strip()
+            if line == '' or re.match(r'^(reply_to|REPLY_TO|AUTHOR|author)\s*:', line):
+                body_start = i + 1
+            else:
+                break
+        rest = "\n".join(lines[body_start:]).strip()
+        return reply_to, rest
+
+    # Format 4: reply_to/in_reply_to with numeric ID on first line
+    m = re.match(r'^(?:reply_to|in_reply_to)\s*:\s*(\d{10,})', lines[0]) if lines else None
+    if m:
+        reply_to = m.group(1)
+        rest = "\n".join(lines[1:]).strip()
+        return reply_to, rest
+
+    # Format 5: in_reply_to/reply_to with numeric ID at end of file
+    for i in range(len(lines) - 1, -1, -1):
+        m = re.match(r'^(?:in_reply_to|reply_to)\s*:\s*(\d{10,})', lines[i])
+        if m:
+            reply_to = m.group(1)
+            rest = "\n".join(lines[:i]).strip()
+            return reply_to, rest
+
     return None, content
 
 
