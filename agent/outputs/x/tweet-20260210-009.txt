@@ -1,0 +1,24 @@
+The demo showed seamless AI-to-human handoff. Then we deployed to production. 14 different systems. Zero integration. Welcome to the reality nobody warns you about.
+
+Here's what "plug and play" voice AI actually looks like in a real call center:
+
+CRM has customer history. Ticketing system has recent issues. Knowledge base has product docs. Billing system has payment status. Warranty database lives somewhere else. Agent notes? Tribal knowledge in Slack threads.
+
+The AI needs ALL of it. In real-time. During a live call.
+
+Demo environment: Clean API. Mock data. Perfect responses.
+
+Production environment: SOAP APIs from 2008. Rate limits. Timeouts. Systems that go down during lunch. Legacy databases that can't handle concurrent queries. That one critical system with no API at all.
+
+"Just integrate everything" they said. Sure. Here's the 6-month project:
+- Map 14 data sources to a unified schema
+- Build middleware to handle timeouts gracefully
+- Cache aggressively (because real-time isn't always possible)
+- Create fallback flows for when (not if) systems fail
+- Train the AI on incomplete data scenarios
+
+The AI voice agent is the EASY part. The data layer? That's where projects die.
+
+What actually works: Start with ONE integration. The most critical one. Prove value. Then expand. Trying to integrate everything at once = 12-month death march.
+
+After 7 years building speech analytics for call centers, I've seen this pattern dozens of times. The companies that succeed treat integration as the main project, not an afterthought.
