@@ -1,0 +1,31 @@
+Your ASR vendor shows 95% accuracy in the demo.
+
+You deploy to production. 67% accuracy. What happened?
+
+After analyzing 500K+ call center conversations, here's what the demo doesn't show you:
+
+**Background noise variance**
+Demos use studio-quality audio. Production has HVAC hum, keyboard clatter, multiple speakers, hold music bleeding through. Your ASR trained on clean data doesn't know what to do with a truck backup beeper in the background.
+
+**Accent distribution**
+Demo uses General American accent. Your call center handles Southern drawl, Boston accents, non-native speakers, code-switching between languages. Accuracy drops 15-30% outside the training distribution.
+
+**Domain vocabulary**
+Generic ASR models fail on industry jargon. Insurance claims have "subrogation" and "loss runs." Healthcare has "prior authorization" and "EOB." Financial services has "ACH" and "chargeback." Each word the model misses costs you context.
+
+**Speaker interruptions**
+Demos show polite turn-taking. Production has talk-overs, crosstalk, customers interrupting agents mid-sentence. Most ASR models can't handle overlapping speech — they just pick the louder voice and drop the other.
+
+**Audio quality degradation**
+VoIP packet loss. Cell phone dead zones. Bluetooth headsets cutting in and out. Speakerphone echo. The demo used a landline in a quiet room. Production is chaos.
+
+**What actually works:**
+- Train on YOUR data, not generic corpora
+- Fine-tune for YOUR accents and vocabulary
+- Build fallback strategies for low-confidence transcriptions
+- Measure accuracy in production, not just in testing
+- Accept that 90%+ accuracy takes months, not days
+
+The gap between demo and production isn't a bug. It's the difference between controlled conditions and reality.
+
+7 years building speech analytics for call centers taught me: if you're not measuring production accuracy weekly, you're flying blind.
