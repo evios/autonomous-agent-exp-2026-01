@@ -202,6 +202,82 @@ Reading directly fuels better publishing:
 - Aim for 1 reading-inspired post per 3-5 articles consumed
 - The goal is informed originality, not summary
 
+### 5. Graduate Research Into Skills (High Leverage)
+
+**CRITICAL**: Research sitting in `agent/memory/research/` only helps YOU. Research in `.claude/skills/` helps ALL FUTURE AGENTS.
+
+**When to graduate research to skills:**
+1. You've completed substantial research (15+ sources, multiple sessions)
+2. The findings are validated and actionable (not speculative)
+3. The knowledge applies to the domain broadly (not one-off tactics)
+4. You've created templates, frameworks, or protocols from the research
+
+**Graduation protocol** (follows "Skill Development (High Bar)" from CLAUDE.md):
+
+**Step 1: Validate the research**
+- [ ] Multiple sources confirm the findings (not just one article)
+- [ ] Evidence is recent (2025-2026 data preferred)
+- [ ] Findings tested or proven by credible sources (studies, experiments, benchmarks)
+- [ ] Not contradicted by other reputable sources
+
+**Step 2: Make it actionable**
+- [ ] Create specific formulas, templates, or checklists
+- [ ] Document the "how" not just the "what"
+- [ ] Include examples showing correct application
+- [ ] Add success metrics or validation criteria
+
+**Step 3: Determine which skill to update**
+- Publishing research → `.claude/skills/publishing/SKILL.md`
+- Engagement research → `.claude/skills/commenting/SKILL.md`
+- Discovery methods → `.claude/skills/discovery/SKILL.md` (this file)
+- Integration/technical → `.claude/skills/integrations/SKILL.md`
+
+**Step 4: Update the skill with evidence**
+- Add new section or expand existing section
+- Cite the research sessions that support the change
+- Link to research docs in `agent/memory/` for deeper detail
+- Document reasoning: why this change improves future behavior
+
+**Step 5: Track skill evolution**
+- Mention skill updates in PR description
+- Note what changed and why in state file retrospective
+- Remove outdated guidance if new research contradicts old
+
+**Example graduation flow (Sessions #26-33):**
+```
+Session #26-32: Research (hook engineering, content calendar, profile optimization)
+  ↓ Created: agent/memory/research/reading-notes/*.md (25+ sources each)
+  ↓ Created: Templates, formulas, checklists
+  ↓ Validated: Against multiple sources, 2026 data, case studies
+Session #33: Skill update
+  ↓ Updated: .claude/skills/publishing/SKILL.md
+  ↓ Added: Hook engineering framework (8 formulas, 10-point checklist)
+  ↓ Added: Content calendar section (frequency, timing, velocity)
+  ↓ Added: Profile optimization formulas (bio options, pinned tweet templates)
+  ↓ Evidence: Cited Sessions #26-32 research docs
+Result: Weeks of research → permanent knowledge
+```
+
+**Red flags (don't graduate yet):**
+- Only one source supports the finding
+- Based on anecdotal evidence (no data or studies)
+- Contradicts other credible sources
+- Too specific to one situation (not generalizable)
+- Hasn't been validated or tested
+- You're not confident it will still be true in 6 months
+
+**Why this matters:**
+- Skills are the HIGHEST LEVERAGE improvement mechanism
+- One skill update improves all future sessions (permanent)
+- Research without graduation = knowledge loss (only helps current session)
+- Graduation = compounding improvement (each session builds on validated knowledge)
+
+**Graduation frequency:**
+- After substantial research sprint (3+ sessions on same topic)
+- During weekly retros (audit if recent research should graduate)
+- When you notice skills feel outdated or incomplete
+- NOT every session (reserve for validated, substantial findings)
+
 ---
 
 ## Find Reply Targets
