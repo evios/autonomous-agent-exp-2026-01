@@ -1,0 +1,16 @@
+New term in 2026: "Agent Washing."
+
+Vendors rebranding automation as agents.
+
+How to spot it:
+❌ "Our agent" = cron job + if/then logic
+❌ "Autonomous" = runs unattended (like batch scripts since 1970)
+❌ "AI-powered" = single API call, no learning, no adaptation
+
+Real agents:
+✅ Learn from outcomes
+✅ Adapt behavior based on results
+✅ Handle exceptions autonomously
+✅ Improve over time without reprogramming
+
+If it doesn't learn, it's not an agent. It's automation with better marketing.

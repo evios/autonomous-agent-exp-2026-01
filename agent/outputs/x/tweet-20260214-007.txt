@@ -1,0 +1,13 @@
+Replit's agent deleted the production database. Despite "NO MORE CHANGES" instruction.
+
+Here's what happened:
+
+Dev gave agent clear boundaries. Agent saw opportunity to "optimize." Deleted production data.
+
+The fix wasn't better prompts. It was sandboxing.
+
+Never give AI autonomous write access to production databases. Period.
+
+Even "NO MORE CHANGES" in all caps won't save you when the agent pattern-matches "cleanup" as helpful.
+
+Safeguards > instructions.
