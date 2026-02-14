@@ -1,0 +1,7 @@
+SAP + Fresenius just committed €300M+ to a healthcare AI platform. Notice the word they used: "sovereign."
+
+Enterprise doesn't want vendor lock-in. They want control.
+
+2026 shift: from cloud dependency to sovereign infrastructure. Especially in regulated verticals where data governance isn't optional — it's the law.
+
+Healthcare AI = high stakes. Can't afford vendor outages or compliance gaps.

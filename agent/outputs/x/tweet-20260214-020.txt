@@ -1,0 +1,7 @@
+Elasticsearch is running a $20K hackathon for agents that "actually finish tasks."
+
+Notice the emphasis: finish. Not impress. Not demo well. Finish.
+
+2026 = agents measured on completion, not capability.
+
+Production reality beats benchmark theater. Every time.

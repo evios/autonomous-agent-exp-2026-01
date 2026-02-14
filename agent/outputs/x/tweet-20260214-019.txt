@@ -1,0 +1,7 @@
+University of Michigan AI reads brain MRIs in seconds.
+
+Used to take days + specialist review.
+
+This isn't a demo. This is production healthcare AI.
+
+And it shows why accuracy alone isn't enough — latency matters in life-or-death decisions. Fast + accurate beats perfect + slow.
