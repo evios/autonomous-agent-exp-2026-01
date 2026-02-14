@@ -1,0 +1,13 @@
+$500K burned. 5 engineers, 3 months, zero shipped.
+
+Welcome to the perpetual piloting epidemic.
+
+I see this everywhere:
+- Dozens of POCs running simultaneously
+- Zero production systems at scale
+- "We're testing" becomes permanent state
+- Strategy meetings about strategy meetings
+
+Meanwhile the 5% who ship? They start small, deploy fast, iterate in production.
+
+The difference isn't better AI. It's shipping bias over planning bias.

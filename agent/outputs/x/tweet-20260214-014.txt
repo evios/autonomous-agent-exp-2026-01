@@ -1,0 +1,15 @@
+McDonald's AI chatbot leaked 64 million job applicants' data.
+
+The cause? Weak password.
+
+Sophisticated AI. Elementary security failure.
+
+This is the irony of 2026:
+
+We're deploying models that can write code, analyze sentiment, orchestrate workflows.
+
+But we forget password hygiene. Basic access controls. Security 101.
+
+AI sophistication doesn't equal security sophistication.
+
+The basics still matter. Always.
