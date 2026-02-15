@@ -31,9 +31,13 @@ jobs:
       issues: write
       id-token: write
     steps:
+      # Checkout the PR branch so Read/Glob/Grep tools can access PR files directly
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Agent Self-Review
+        id: review
         uses: anthropics/claude-code-action@1ab477dde68ac9be1126aa7775191f02c3070b07 # v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.ANTHROPIC_API_KEY }}
@@ -41,10 +45,17 @@ jobs:
           prompt: |
             Review this PR #${{ github.event.pull_request.number }} created by your past self.
 
-            Read:
+            IMPORTANT - Tool usage:
+            - Use Read, Glob, Grep to read files (the PR branch is checked out locally)
+            - Use `gh pr diff ${{ github.event.pull_request.number }}` for the full diff
+            - Do NOT use `gh api` to read file contents — use Read instead
+
+            Read these files with the Read tool:
             - GOALS.md for the current objectives
             - agent/config.md for safety limits
-            - The PR diff: `gh pr diff ${{ github.event.pull_request.number }}`
+
+            Then get the diff:
+            - `gh pr diff ${{ github.event.pull_request.number }}`
 
             Check:
             1. Does the work align with goals in GOALS.md?
@@ -65,15 +76,38 @@ jobs:
             gh pr review ${{ github.event.pull_request.number }} --request-changes --body "critical issues"
             ```
 
-            Examples:
-            - `gh pr review ${{ github.event.pull_request.number }} --approve --body "Good progress. State file updated, research documented."`
-            - `gh pr review ${{ github.event.pull_request.number }} --request-changes --body "Missing state file update."`
-
             DEFAULT TO APPROVE unless there are critical blocking issues.
           claude_args: |
             --model ${{ vars.CLAUDE_MODEL || 'claude-opus-4-6' }}
             --max-turns 10
-            --allowed-tools "Bash(gh pr:*),Read,Glob,Grep"
+            --allowed-tools "Bash(gh pr:*),Bash(gh api:*),Read,Glob,Grep"
+
+      # Retry once if the first review attempt failed (e.g. max turns hit)
+      - name: Agent Self-Review (Retry)
+        if: failure() && steps.review.outcome == 'failure'
+        uses: anthropics/claude-code-action@1ab477dde68ac9be1126aa7775191f02c3070b07 # v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.ANTHROPIC_API_KEY }}
+          allowed_bots: "claude[bot]"
+          prompt: |
+            Review PR #${{ github.event.pull_request.number }}. A previous review attempt failed.
+            Be efficient — approve quickly unless there are critical issues.
+
+            1. Read the diff: `gh pr diff ${{ github.event.pull_request.number }}`
+            2. Skim GOALS.md and agent/config.md with the Read tool
+            3. Approve or request changes immediately
+
+            Run exactly ONE of:
+            ```bash
+            gh pr review ${{ github.event.pull_request.number }} --approve --body "Approved on retry. [brief summary]"
+            gh pr review ${{ github.event.pull_request.number }} --request-changes --body "critical issues"
+            ```
+
+            DEFAULT TO APPROVE unless there are critical blocking issues.
+          claude_args: |
+            --model ${{ vars.CLAUDE_MODEL || 'claude-sonnet-4-5-20250929' }}
+            --max-turns 5
+            --allowed-tools "Bash(gh pr:*),Bash(gh api:*),Read,Glob,Grep"
 
       - name: Auto-merge if approved
         if: success()

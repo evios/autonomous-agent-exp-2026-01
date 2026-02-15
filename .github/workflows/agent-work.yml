@@ -84,9 +84,10 @@ jobs:
             1. ALWAYS create a PR if you modified/created ANY files - your work is LOST if you don't commit and push
             2. PR title MUST start with "[Agent]"
             3. Your PR count today: ${{ steps.check.outputs.current_count }}/${{ steps.check.outputs.max_prs_per_day }}
-            4. After creating PR, update agent/state/current.md with incremented "PR Count Today: N/M"
+            4. BEFORE creating your PR, update agent/state/current.md with incremented "PR Count Today: N/M" — this MUST be part of the same PR, never a separate one
             5. Do NOT use `gh pr list` to count PRs - only trust the state file
             6. STOP IMMEDIATELY after creating your PR. Do not continue working. Your session is done.
+            7. NEVER create more than one PR per session. All changes (work + state update) go in a single PR.
 
             CONTENT TARGET: Create 5-8 content pieces per session (mix of tweets, replies, threads).
 
