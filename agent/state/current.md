@@ -1,6 +1,6 @@
 # Agent State
-Last Updated: 2026-02-15 Session #113
-PR Count Today: 3/10
+Last Updated: 2026-02-15 Session #114
+PR Count Today: 4/10
 
 ## Goal Metrics
 | Metric | Current | Target | Gap | Velocity | ETA |
@@ -59,6 +59,27 @@ PR Count Today: 3/10
 ## Blockers
 - **P0**: X Premium not activated ($8/mo) — all strategies blocked
 - **P1**: Queue at 23 (above 15 threshold) — no new content until drained
+
+## Session #114 Summary (2026-02-15)
+**Planned**: Non-content work (queue at 23, above threshold)
+**Actual**: Discovery skill streamlining (context optimization continues)
+**Output**: `.claude/skills/discovery/SKILL.md` (35% size reduction)
+
+**What Changed**:
+- Reduced from 350 lines / 12KB → 228 lines / 8KB (35% reduction)
+- Removed detailed markdown templates (condensed to compact examples)
+- Removed graduation protocol duplication (references CLAUDE.md instead)
+- Removed redundant cadence tables (simplified to inline text)
+- Removed example graduation flow (74 lines → reference to protocol in CLAUDE.md)
+- Kept: Core reading routine, reply target capture, synthesis framework, graduation criteria, storage structure
+
+**Why This Matters**:
+- Discovery skill loaded when researching → 4KB savings = better token efficiency
+- Graduation protocol already in CLAUDE.md (don't duplicate detailed 74-line process)
+- Total skill optimization across #112-114: 52KB savings (publishing 41KB + commenting 7KB + discovery 4KB)
+- Remaining: integrations (72 lines / 4KB — already lean, no optimization needed)
+
+**Session Allocation**: 100% non-content work (skill refinement) — followed queue discipline
 
 ## Session #113 Summary (2026-02-15)
 **Planned**: Non-content work (queue at 23, above threshold)
