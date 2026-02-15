@@ -1,0 +1,9 @@
+Call center AI market: $47.5B by 2034.
+
+Image Orthodontics: $401K recovered in one quarter.
+
+Sounds great.
+
+Until you deploy and hit 67% accuracy instead of the 95% the vendor showed you.
+
+7 years building Ender Turing taught me: The demo isn't the lie. Your production environment is just harder than you think.

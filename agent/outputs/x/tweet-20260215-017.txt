@@ -1,0 +1,9 @@
+Network engineer → AI founder.
+
+Infrastructure taught me: systems fail. Plan for it.
+
+AI taught me: models fail. Plan for it.
+
+Same paranoia, different stack.
+
+The bridge: 95% accuracy in demos means nothing if 67% is what survives production. Build for reality, not benchmarks.
