@@ -229,38 +229,10 @@ A weekly retro runs every Sunday (or on-demand via `workflow_dispatch` with `mod
 - Include: data summary, patterns found, goal analysis, skill changes made, action items
 - Keep it specific and actionable — vague retros are useless
 
-#### 7. Knowledge Compilation & Cleanup (Critical — Token Budget)
-
-Every file the agent reads burns context tokens. Bloated files = dumber agent. This step ensures knowledge is distilled, not just accumulated.
-
-**State file (`agent/state/current.md`) — Target: <500 lines**
-1. Read the full state file (may be 1000+ lines)
-2. Extract any insights, patterns, or data NOT already captured in skills or learnings
-3. Graduate valuable findings: update skills, create/update learnings
-4. Rewrite state file keeping ONLY: current metrics, planned next steps, active blockers, last session summary, session history (one line each)
-5. Archive the old version to `agent/memory/archive/state-YYYY-MM-DD.md`
-
-**Memory files (`agent/memory/`) — Target: <500KB total**
-1. List all files with sizes: `find agent/memory -type f -exec wc -c {} + | sort -rn`
-2. For each file, evaluate:
-   - **Already in skills?** → Delete (skills are the canonical source)
-   - **Outdated/superseded?** → Delete (e.g., old research replaced by newer)
-   - **Valuable but not yet in skills?** → Graduate to skills, then delete
-   - **Still actively needed?** → Keep, but trim to essentials
-3. Merge overlapping files (e.g., multiple research docs on same topic → one)
-4. Plans that are executed or abandoned → delete
-5. Research that informed skills → delete (the skill captures the conclusion)
-6. Hypotheses that are confirmed/rejected → move conclusion to learnings, delete hypothesis
-
-**Rules:**
-- Skills are permanent knowledge. Memory is working scratch. Don't hoard scratch.
-- If you can't explain why a file needs to exist next week, delete it.
-- One well-structured 5KB file beats five scattered 3KB files.
-
-#### 8. Update State & Plan Next Week
-- Update `agent/state/current.md` with retro findings (keep it under 200 lines!)
-- Set priorities and planned steps for the coming week
-- Note any experiments to run or hypotheses to test
+#### 7. Trim State File
+- Rewrite `agent/state/current.md` keeping ONLY: current metrics, planned next steps, active blockers, last session summary, session history (one line each)
+- Target: <200 lines
+- Add retro findings and next week's priorities
 
 ### Retro Quality Checklist
 - [ ] Reviewed ALL merged PRs since last retro (not just recent ones)
@@ -270,9 +242,47 @@ Every file the agent reads burns context tokens. Bloated files = dumber agent. T
 - [ ] Retro doc saved to `agent/memory/learnings/`
 - [ ] Skills updated with evidence-based changes
 - [ ] State file trimmed to <200 lines
-- [ ] Memory directory under 500KB (run `du -sh agent/memory/`)
-- [ ] No memory file duplicates content already in skills
-- [ ] Stale plans, old research, resolved hypotheses deleted
+- [ ] Every deleted memory file was read first in this session
+- [ ] Graduation log in PR description for every deleted file
+- [ ] Memory directory under 500KB
+
+### Knowledge Cleanup (Part of Retro)
+
+Every file the agent reads burns context tokens. Bloated files = dumber agent. But deleting without graduating = lost knowledge.
+
+**HARD RULES:**
+- **Never delete a file without reading it first in this session**
+- **Graduate before delete**: extract insights → update skill/learning → then delete source
+- **If running low on turns, leave remaining files** — partial cleanup > lossy cleanup
+
+#### Cleanup Steps (within retro)
+1. Inventory: `find agent/memory -type f -exec wc -c {} + | sort -rn`
+2. Triage every file: **GRADUATE** (has unextracted insights) / **COMPRESS** (merge overlapping) / **KEEP** (still needed) / **DELETE** (truly redundant or stale)
+3. For each GRADUATE file: read it → extract key insights → update the relevant skill or learning → delete source
+4. Trim state file to <200 lines
+5. **Graduation log in PR description** — table accounting for every deleted file:
+
+```markdown
+| File | Action | Graduated To | Key Insight |
+|------|--------|-------------|-------------|
+| research/topic-x.md | GRADUATE | publishing skill "What Works" | News hooks get 3-6x impressions |
+| hypotheses/old.md | DELETE | Already in retro doc | N/A |
+```
+
+#### Targets
+- Memory directory: <500KB total
+- State file: <200 lines
+
+## Workflow Architecture
+- **`agent-work.yml`** — Work sessions + retro (schedule crons for work, `workflow_dispatch` with `mode` for retro)
+- **`agent-work-trigger.yml`** — Chains work sessions on PR merge + dispatches retro on Sunday cron (only place retro cron is defined)
+- **`agent-review.yml`** — PR self-review + auto-merge
+
+### Scheduling Rules
+- Work session crons live in `agent-work.yml`
+- **Retro cron is defined in exactly one place**: `agent-work-trigger.yml` (dispatches `agent-work.yml -f mode=retro`)
+- **Never duplicate cron definitions** across files — high risk of desync
+- **Never match cron strings in scripts** — use explicit `mode` input instead
 
 ## Workflow Error Self-Fixing
 When GitHub Actions workflows fail due to configuration errors:

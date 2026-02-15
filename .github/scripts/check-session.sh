@@ -1,24 +1,12 @@
 #!/usr/bin/env bash
-# check-session.sh - Determine session mode and check PR limits
+# check-session.sh - Check PR limits for work sessions
 #
 # Required env vars:
 #   GITHUB_OUTPUT   - GitHub Actions output file
 # Optional env vars:
-#   INPUT_MODE      - workflow_dispatch mode input (work|retro)
-#   EVENT_SCHEDULE  - github.event.schedule cron string
 #   MAX_PRS_VAR     - override for max PRs per day
 
 set -euo pipefail
-
-# --- Resolve session mode ---
-# Priority: explicit input > schedule mapping > default
-if [ -n "${INPUT_MODE:-}" ]; then
-  MODE="$INPUT_MODE"
-else
-  MODE="work"
-fi
-echo "mode=$MODE" >> "$GITHUB_OUTPUT"
-echo "Session mode: $MODE"
 
 # --- Resolve max PRs per day ---
 # Prefer GitHub var, fallback to config file, default 2
@@ -46,11 +34,7 @@ echo "current_count=$CURRENT_COUNT" >> "$GITHUB_OUTPUT"
 echo "today=$TODAY" >> "$GITHUB_OUTPUT"
 
 # --- Decide whether to skip ---
-# Retro mode bypasses PR limit check
-if [ "$MODE" = "retro" ]; then
-  echo "skip=false" >> "$GITHUB_OUTPUT"
-  echo "Retro mode - bypassing PR limit check."
-elif [ "$CURRENT_COUNT" -ge "$MAX_PRS" ]; then
+if [ "$CURRENT_COUNT" -ge "$MAX_PRS" ]; then
   echo "skip=true" >> "$GITHUB_OUTPUT"
   echo "Daily limit reached ($CURRENT_COUNT/$MAX_PRS). Skipping."
 else

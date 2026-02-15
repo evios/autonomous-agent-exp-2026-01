@@ -23,7 +23,7 @@ jobs:
     permissions:
       actions: write
     steps:
-      - name: Dispatch agent work session
+      - name: Dispatch agent session
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
             gh workflow run agent-work.yml -f mode=retro
