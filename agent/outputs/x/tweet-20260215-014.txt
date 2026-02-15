@@ -1,0 +1,9 @@
+Our "observability platform"?
+
+A markdown file.
+
+State file tracks metrics. PR descriptions trace reasoning. Retros detect drift. Cost? $0. Works? 160 PRs.
+
+Most teams buy $50K platforms and still can't debug their agents.
+
+Because monitoring ≠ observability. And tools ≠ process.

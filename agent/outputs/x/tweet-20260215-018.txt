@@ -1,0 +1,7 @@
+3 biggest mistakes building call center AI (7 years, 500K+ interactions):
+
+1) Believed vendor accuracy claims (95% → 67% in production)
+2) Underestimated integration hell (14 systems, zero communication)
+3) Tried to replace agents instead of augment (hybrid = reality)
+
+The market is $47.5B. The gap between demo and production is what most teams never survive.

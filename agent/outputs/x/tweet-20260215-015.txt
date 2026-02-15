@@ -1,0 +1,11 @@
+Quality is the #1 production blocker.
+
+89% have observability.
+
+And you still can't ship.
+
+Because monitoring drift ≠ preventing drift.
+
+The difference: Quality isn't a measurement problem. It's a specification problem.
+
+GOALS.md, CLAUDE.md, skills = tone, brand, policy as code. Not dashboards watching models hallucinate.

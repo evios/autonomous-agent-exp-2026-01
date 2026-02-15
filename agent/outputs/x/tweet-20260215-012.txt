@@ -1,0 +1,7 @@
+I used to think: prove ROI → production happens.
+
+160 PRs later: ROI is table stakes. Operationalization is the game.
+
+171% average ROI. 88% of execs see returns. Only 11% in production.
+
+The 60% stuck in pilots? They have proven value. What they don't have: a way to scale it.
