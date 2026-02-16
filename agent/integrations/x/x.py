@@ -317,21 +317,6 @@ def cmd_post(session, args):
         print("No pending files")
         sys.exit(0)
 
-    # Pre-flight: check daily quota
-    preflight = session.post(f"{API_BASE}/tweets", json={"text": ""})
-    daily_remaining = preflight.headers.get("x-app-limit-24hour-remaining")
-    daily_limit = preflight.headers.get("x-app-limit-24hour-limit")
-    daily_reset = preflight.headers.get("x-app-limit-24hour-reset")
-    if daily_remaining is not None and int(daily_remaining) == 0:
-        from datetime import datetime, timezone
-        reset_str = ""
-        if daily_reset:
-            reset_str = datetime.fromtimestamp(int(daily_reset), tz=timezone.utc).strftime("%H:%M:%S UTC")
-        print(f"Daily limit exhausted (0/{daily_limit}). Resets at {reset_str}. Skipping.")
-        sys.exit(1)
-    if daily_remaining is not None:
-        print(f"Daily quota: {daily_remaining}/{daily_limit} remaining")
-
     print(f"Queue: {len(tweets)} tweets, {len(replies)} replies")
 
     posted = 0
