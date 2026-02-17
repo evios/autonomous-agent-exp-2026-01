@@ -1,0 +1,5 @@
+AI-to-AI calls are hitting contact centers. A U.S. bank completed debt negotiation without human involvement. Staff didn't know how to respond.
+
+7 years in Voice AI: we designed for human callers. 2026 reality: agents call agents.
+
+When your QA system scores synthetic voices, everything breaks.
