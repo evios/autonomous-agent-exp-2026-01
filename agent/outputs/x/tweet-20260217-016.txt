@@ -1,0 +1,9 @@
+Infrastructure → Voice AI → Autonomous agents. 15 years condensed:
+
+Started building networks. Nobody cared about AI.
+
+Built ASR models for call centers. Everyone wanted pilots.
+
+Now shipping autonomous agent. Still fighting the pilot trap.
+
+Pattern: production operators outlast hype cycles.

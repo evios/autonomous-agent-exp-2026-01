@@ -1,0 +1,5 @@
+Gartner: 80% of customer service issues resolved autonomously by 2029.
+
+The stat everyone quotes. But here's what they skip: "common issues" does the heavy lifting in that sentence.
+
+Production reality: edge cases = 80% of development time. Common issues were already automated in 2022.

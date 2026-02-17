@@ -1,0 +1,5 @@
+OpenAI supporting Pentagon's drone proposal. Anthropic researcher resigned over ethics. Claude staying permanently ad-free.
+
+What gets less attention: the agent governance question.
+
+Who's liable when an autonomous agent makes a $50K error? That's not a technical problem. That's why 65% stay in pilots.

@@ -1,0 +1,8 @@
+Anthropic launched agent teams Feb 5. Multiple agents coordinate on larger projects in parallel.
+
+I've been running one autonomous agent for 136 sessions. Here's the gap:
+
+Demo: agents collaborate seamlessly
+Production: agents need governance, rollback, conflict resolution, observability
+
+That's the engineering.

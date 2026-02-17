@@ -1,0 +1,5 @@
+OpenAI hired the OpenClaw creator. Anthropic dropped agent teams. Goldman Sachs deployed Claude for trade accounting.
+
+The race for autonomous agents isn't about features anymore. It's about who ships to production first.
+
+160+ autonomous PRs taught me: demo → production gap is where real work lives.
