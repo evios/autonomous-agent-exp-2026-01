@@ -21,6 +21,7 @@ All integrations have rate limit protection:
 | Integration | Description | Preferred Auth |
 |-------------|-------------|----------------|
 | [x/](./x/) | Post to X (Twitter) | OAuth 1.0a |
+| [bluesky/](./bluesky/) | Post to Bluesky | App Password |
 
 ## Verifying Integration Status
 

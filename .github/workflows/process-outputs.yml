@@ -32,6 +32,21 @@ jobs:
           pip install -q requests-oauthlib
           python agent/integrations/x/x.py --post --limit-tweets ${{ vars.X_TWEETS_PER_RUN || '1' }} --limit-replies ${{ vars.X_REPLIES_PER_RUN || '1' }}
 
+      - name: Post to Bluesky
+        if: ${{ !cancelled() }}
+        env:
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: |
+          if [ -z "$BLUESKY_HANDLE" ]; then
+            echo "Bluesky credentials not configured, skipping"
+            exit 0
+          fi
+          pip install -q atproto
+          python agent/integrations/bluesky/bluesky.py --post \
+            --limit-tweets ${{ vars.BLUESKY_POSTS_PER_RUN || '1' }} \
+            --limit-replies ${{ vars.BLUESKY_REPLIES_PER_RUN || '1' }}
+
       - name: Commit posted status via PR
         if: always()
         env:

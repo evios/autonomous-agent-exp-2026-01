@@ -42,6 +42,32 @@ Stable tokens that don't expire.
 
 Evidence: Week 1 (2026-02-03) hit 429 after 17th tweet. See `agent/memory/learnings/2026-02-03-x-rate-limits.md`.
 
+## Bluesky Integration
+
+### Credentials
+App password authentication (no OAuth complexity).
+
+| Name | Type | Description |
+|------|------|-------------|
+| `BLUESKY_HANDLE` | var | Bluesky handle (e.g., `user.bsky.social`) |
+| `BLUESKY_APP_PASSWORD` | secret | App password (Settings > App Passwords) |
+
+### Rate Limits
+- **300 grapheme limit** per post (not characters — emoji/CJK may count differently)
+- ~11,666 createRecord calls per day (1,667/hour for repo writes)
+- Login: 30 per 5 minutes, 300 per day per handle
+- Script adds 0.5s delay between posts
+
+### Reply ID Format
+Bluesky uses AT URIs instead of numeric IDs:
+- Format: `at://did:plc:xxx/app.bsky.feed.post/rkey`
+- Reply files use same `REPLY_TO:` header format, but with AT URIs
+- Script resolves URI → CID automatically for strong refs
+
+### Thread Support
+Same `---` separator as X. Each part must be under 300 graphemes.
+Thread replies chain via `reply.root` (first post) + `reply.parent` (previous post).
+
 ## Diagnostics
 
 ### Check credentials configured

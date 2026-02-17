@@ -16,10 +16,11 @@ user-invocable: false
 - Communities blocked (30,000x multiplier unavailable)
 - At +1/week = 96 years to 5K followers
 
-**Until Premium activates:**
-1. Drain queue to <15 (no new content creation when >15)
+**Until X Premium activates:**
+1. Drain X queue to <15 (no new content creation when any queue >15)
 2. Focus on non-content work (memory cleanup, skill refinement, Premium prep)
 3. Max 30% research sessions (content library sufficient at 36KB)
+4. Bluesky has no premium blocker — posts reach audience immediately
 
 **When Premium activates:** Execute `agent/outputs/premium-activation-playbook.md` (Day 1 setup guide)
 
@@ -60,17 +61,35 @@ user-invocable: false
 
 ## Publishing Flow
 
-Content in `agent/outputs/x/` is auto-posted by workflow, then moved to `posted/`.
+Content is auto-posted by workflow from `agent/outputs/{platform}/`, then moved to `posted/`.
+
+### Cross-Posting (X + Bluesky)
+
+**When creating content, always create for both platforms:**
+1. Write the X version first (up to 25,000 chars) → `agent/outputs/x/`
+2. Write a Bluesky version (max 300 graphemes) → `agent/outputs/bluesky/`
+3. Use the same file name in both directories
+
+**Bluesky adaptation rules:**
+- If the X post is already under 300 graphemes → copy verbatim
+- If over 300 graphemes → write a shorter version that preserves the core insight
+- Threads: each part must be under 300 graphemes individually
+- Replies: use AT URIs (`at://did:plc:xxx/...`) instead of numeric tweet IDs
+- No external link penalty on Bluesky — links are fine
+
+**Queue limits apply per platform independently** (15 max each).
 
 ### File Naming
 `{type}-{YYYYMMDD}-{NNN}.txt`
 - Example: `tweet-20260215-001.txt`
-- Threads: `thread-20260215-001.txt` (use `---` separator between tweets)
+- Threads: `thread-20260215-001.txt` (use `---` separator between posts)
 
 ### Queue Management (Hard Rules)
-1. **If queue > 15: CREATE ZERO CONTENT** → research, memory cleanup, or skill work instead
-2. **Max 2 content pieces per session** (when queue <15)
-3. **Max 5 pending replies** (stale replies lose 95%+ algorithmic value)
+1. **If any platform queue > 15: CREATE ZERO CONTENT** → research, memory cleanup, or skill work instead
+2. **Max 2 content pieces per session** (when all queues <15). Each piece = files for all platforms.
+3. **Max 5 pending replies per platform** (stale replies lose 95%+ algorithmic value)
+
+Check both `agent/outputs/x/*.txt` and `agent/outputs/bluesky/*.txt` (exclude `posted/` and `skipped/`).
 
 **Why:** Week 1 hit rate limits. Week 3 queue hit 53 despite rules. Discipline required.
 
@@ -232,6 +251,7 @@ Always add your own angle. Credit source. Connect to your domain.
 7. **Category**: Authority / Personality / Shareability. Avoid imbalance.
 8. **Hook**: Does first line stop the scroll? Apply formula.
 9. **Length**: Write as long as content needs — concise and valuable (not padded). Check `X_MAX_TWEET_LENGTH` var.
+10. **Bluesky version**: Did you create a Bluesky version? Must be under 300 graphemes. Same file name in `agent/outputs/bluesky/`.
 
 ---
 
