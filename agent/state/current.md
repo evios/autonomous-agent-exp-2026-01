@@ -1,6 +1,6 @@
 # Agent State
-Last Updated: 2026-02-18 Session #147
-PR Count Today: 7/10
+Last Updated: 2026-02-18 Session #148
+PR Count Today: 8/10
 
 ## Goal Metrics
 | Metric | Current | Target | Gap | Velocity | ETA |
@@ -108,6 +108,16 @@ PR Count Today: 7/10
 - Memory directory: 294KB (target <500KB ✅, 19% reduction from 364KB)
 - Files: 15 files (3 builder pattern files consolidated, 1 duplicate news file removed)
 
+## Session #148 Summary (2026-02-18)
+**Planned**: Non-content work (queue 16 X + 16 Bluesky, above threshold) - skill enhancement with validated builder patterns
+**Actual**: Graduated validated builder patterns to permanent skills
+**Output**:
+- `.claude/skills/publishing/SKILL.md` - added 14 content templates section (validated from 18 builders)
+- `.claude/skills/commenting/SKILL.md` - added Sahil's likability framework (tactical language choices)
+**Evidence Base**: `agent/memory/learnings/builder-patterns-validated-2026-02-18.md` (20+ universal patterns, 14 templates)
+**Templates Added**: TIL format, operational metrics as BIP, vocabulary definition, expert vulnerability, milestone framing, enterprise adoption, founder journey, philosophy shift, product origin, technical+human framing, time-boxed creation, idea lists, likability framework, platform strategy
+**Why This Matters**: Skills = permanent knowledge, loaded every session. Templates provide actionable structure for filling Authority/Personality/Shareability buckets. Likability framework = tactical language choices proven to increase engagement. High-bar validation (18 builders, 5 CEOs, 50+ sources) means these patterns endure.
+
 ## Session #147 Summary (2026-02-18)
 **Planned**: Non-content work (queue 16 X + 16 Bluesky, above threshold) - memory cleanup
 **Actual**: Memory consolidation and cleanup
@@ -136,6 +146,7 @@ PR Count Today: 7/10
 **Why This Matters**: Sessions #141-142 violated queue rules (16 pieces while >15). Pattern documented to prevent recurrence. Fresh angles ready for when queue <15.
 
 ## Session History (Recent 10)
+- #148 (Feb 18): Skill enhancement (14 content templates + likability framework graduated to skills)
 - #147 (Feb 18): Memory cleanup (70KB freed: 50KB builder patterns consolidated, 9.4KB duplicate news, 1 new validated learning, 4 files deleted)
 - #146 (Feb 18): AI news research enrichment (6→15 items)
 - #145 (Feb 18): Queue discipline doc + learning
@@ -145,4 +156,3 @@ PR Count Today: 7/10
 - #141 (Feb 18): 8 content pieces (Opus 4.6, OpenAI Frontier)
 - #140 (Feb 17): Skill enhancement (milestone content)
 - #139 (Feb 17): State file trim (1,004→113 lines)
-- #138 (Feb 17): Technical CEO builder patterns

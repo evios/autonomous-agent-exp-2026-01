@@ -259,6 +259,104 @@ Always add your own angle. Credit source. Connect to your domain.
 
 ---
 
+## Content Templates (Validated from 18 Builders)
+
+**Use these templates to fill the 3-bucket mix (Authority/Personality/Shareability) and maintain BIP balance.**
+
+### 1. TIL Format (Simon Willison pattern)
+**Template**: "TIL: [specific discovery]. This matters because [implication]."
+- **Bucket**: Personality / BIP
+- **Use when**: Every session produces one TIL (minimum friction)
+- **Example**: "TIL: Free X accounts have 0% median engagement (Buffer 2026 study). This means content quality is irrelevant until Premium activates."
+
+### 2. Operational Metrics as BIP (Levelsio pattern)
+**Template**: "[Session #X], [PR #N]: [metric]. [Casual interpretation]."
+- **Bucket**: BIP / Personality
+- **Use when**: Every session, milestone moments (PR #150, #200, Premium activation)
+- **Example**: "Session #147. 160 PRs, 8 followers, 354 tweets. Queue discipline still hardest part."
+
+### 3. Vocabulary Definition (Swyx pattern)
+**Template**: "[Term] = [concise definition]. Here's why this matters..."
+- **Bucket**: Authority / Shareability
+- **Use when**: Introducing "Specification Engineering" or other owned terms
+- **Example**: "Specification Engineering = treating requirements as code. Why it matters: 67% accuracy in production vs 95% in demos."
+
+### 4. Expert Vulnerability Hook (Karpathy pattern)
+**Template**: "I've [impressive thing] for [duration]. I still [struggle]. Here's what data shows..."
+- **Bucket**: Personality / Shareability
+- **Use when**: Sharing honest challenges builds trust
+- **Example**: "Built Voice AI for 7 years. 500K+ interactions analyzed. Still can't predict which posts will hit 60 impressions vs 10. Pattern found: news hooks = 3-6x baseline."
+
+### 5. Milestone Framing (Altman pattern)
+**Template**: "[Milestone]. [Casual observation]."
+- **Bucket**: BIP
+- **Use when**: Session milestones (#150, #200), follower milestones (50, 100), Premium activation
+- **Example**: "PR #300 merged. Zero human intervention. Still learning which hooks work."
+
+### 6. Enterprise Adoption (Brockman pattern)
+**Template**: "[Product] powers [company]. Here's what it means for [industry]..."
+- **Bucket**: Authority
+- **Use when**: Promoting Ender Turing naturally (~20% of posts)
+- **Example**: "Ender Turing: 20% CSAT increase for banking call centers. What changed: real-time emotion detection + auto-coaching."
+
+### 7. Founder Journey Narrative (Rauch pattern)
+**Template**: "Started at [age]. Built [project]. Now [outcome]. [Lesson]."
+- **Bucket**: Personality
+- **Use when**: Filling personality bucket, showing multi-topic authenticity
+- **Example**: "Network engineer → Voice AI researcher → Agent builder. 15 years, 3 pivots. Lesson: infrastructure thinking scales."
+
+### 8. Philosophy Shift (DHH pattern)
+**Template**: "I was skeptical in [year]. In [current year], here's why I changed..."
+- **Bucket**: Shareability
+- **Use when**: 10-15% of content, save for clarity moments
+- **Example**: "Was skeptical of autonomous agents in 2023. Built one manually. Now 160+ PRs, zero human help. What changed: better prompting, better models, better tools."
+
+### 9. Product Origin Story (Levels pattern)
+**Template**: "Built [product] because I needed [solution]. Shipped in [time]. Now [outcome]."
+- **Bucket**: BIP
+- **Use when**: Explaining why this experiment exists
+- **Example**: "Needed to grow X to 5K followers. Built autonomous agent to prove it's possible. 147 sessions, zero human intervention. Current: 8 followers, 354 tweets, 4.08% engagement."
+
+### 10. Technical Milestone + Human Framing (Graham pattern)
+**Template**: "[Technical achievement] means [human impact]. Here's what matters..."
+- **Bucket**: Authority
+- **Use when**: Balancing technical depth with accessibility
+- **Example**: "160+ PRs merged autonomously. What matters: not the automation — the human judgment on what to build. Agent executes. Human directs."
+
+### 11. Time-Boxed Creation (Greg Isenberg pattern)
+**Template**: "I spend [X min] creating daily. Here's my system: [workflow]. Result: [outcome]."
+- **Bucket**: Shareability
+- **Use when**: Sharing productivity systems
+- **Example**: "Agent does 40 min/session: 20 min creation, 20 min research. Down from 4-hour manual sessions. Same quality, 6x throughput."
+
+### 12. Idea List (Greg Isenberg pattern)
+**Template**: "[Number] ideas for [audience]: 1. [idea] 2. [idea]..."
+- **Bucket**: Authority / Shareability
+- **Use when**: Sharing frameworks, use cases, templates
+- **Example**: "10 autonomous agent use cases for call centers: 1. QA audit automation 2. Training scenario generation 3. Compliance monitoring..."
+
+### 13. Likability Framework (Sahil pattern)
+**Template**: "How to [outcome] on X: - [principle 1] - [principle 2]..."
+- **Bucket**: Authority / Shareability
+- **Use when**: Distilling learnings into actionable principles
+- **Example**: "How to grow on X with zero budget: - News hooks > authority posts (3-6x impressions) - Dollar amounts stop scroll - Communities = 30,000x reach"
+
+### 14. Platform Strategy (Sahil/Greg pattern)
+**Template**: "I stopped [old habit]. Now I [new strategy]. Result: [outcome]."
+- **Bucket**: BIP / Personality
+- **Use when**: Sharing pivots, strategy changes, A/B test results
+- **Example**: "Stopped long authority threads. Now: news hooks + dollar amounts + name drops. Result: 65 impressions (vs 10 avg)."
+
+**Template Usage Notes:**
+- Use variety — don't repeat same template 3+ times in a row
+- Templates are guides, not scripts — adapt to voice
+- Track which templates get >30 impressions (our current high bar)
+- Target: 25%+ BIP content = heavy use of templates 2, 5, 9, 14
+
+**Evidence Base**: 18 builders researched (Sessions #133-138), 20+ universal patterns validated, graduated from `agent/memory/learnings/builder-patterns-validated-2026-02-18.md`
+
+---
+
 ## Content Creation Checklist
 
 **Before committing any content, verify:**
