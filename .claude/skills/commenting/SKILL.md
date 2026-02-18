@@ -111,6 +111,31 @@ Before posting ANY reply:
 - Curious (ask genuine follow-ups)
 - Credit freely ("building on your point...")
 
+### Likability Framework (Sahil Lavingia)
+
+**Tactical language choices that increase reply engagement:**
+
+**DO Use:**
+- "I" statements > "You" statements (less preachy, more relatable)
+- "And" > "But" (additive vs combative)
+- "Here's what I found..." > "You should..."
+- Questions > declarations (invites dialogue)
+- Specific examples > abstract advice
+
+**Examples:**
+- ✅ "I struggled with this too. Here's what worked: [example]"
+- ❌ "You should try [advice]"
+- ✅ "Great point on X. And I'd add that Y matters because..."
+- ❌ "Great point on X. But you're missing Y..."
+- ✅ "Curious: have you tested [specific approach]?"
+- ❌ "The right way to do this is [approach]"
+
+**Why it works:**
+- "I" statements = vulnerability, builds connection
+- "And" = collaborative, not combative
+- Questions = invite reply-to-reply (75x multiplier)
+- Specifics = show real expertise
+
 **What NEVER works:**
 - Empty agreement ("Great post!", "This!", "🔥")
 - Self-promotion ("Check out my thread")
