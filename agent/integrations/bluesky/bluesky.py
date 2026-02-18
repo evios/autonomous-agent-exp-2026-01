@@ -321,20 +321,24 @@ def cmd_post(client, args):
     all_pending = sorted(OUTPUT_DIR.glob("*.txt"))
     all_pending = [f for f in all_pending if f.is_file() and "posted" not in str(f) and "skipped" not in str(f)]
 
-    replies = [f for f in all_pending if f.name.startswith("reply-")][:args.limit_replies]
-    tweets = [f for f in all_pending if not f.name.startswith("reply-")][:args.limit_tweets]
-    pending = tweets + replies
+    all_replies = [f for f in all_pending if f.name.startswith("reply-")]
+    all_tweets = [f for f in all_pending if not f.name.startswith("reply-")]
 
-    if not pending:
+    if not all_tweets and not all_replies:
         print("No pending files")
         sys.exit(0)
 
-    print(f"Queue: {len(tweets)} posts, {len(replies)} replies")
+    print(f"Queue: {len(all_tweets)} posts, {len(all_replies)} replies")
 
-    posted = 0
+    posted_tweets = 0
+    posted_replies = 0
+    skipped = 0
     failed = False
 
-    for filepath in pending:
+    # Process tweets — skip invalid, keep going until limit posted or queue empty
+    for filepath in all_tweets:
+        if posted_tweets >= args.limit_tweets:
+            break
         print(f"Processing: {filepath.name}")
         content = filepath.read_text().strip()
 
@@ -342,23 +346,55 @@ def cmd_post(client, args):
         if error:
             print(f"  Skipping: {error}")
             filepath.rename(SKIPPED_DIR / filepath.name)
+            skipped += 1
             continue
 
         try:
             if process_content(client, content):
                 filepath.rename(POSTED_DIR / filepath.name)
                 print("  Posted and archived")
-                posted += 1
+                posted_tweets += 1
             else:
                 print("  Failed")
                 failed = True
                 break
         except RateLimitError as e:
             print(f"\nWARNING: {e}")
+            posted = posted_tweets + posted_replies
             print(f"Posted {posted} before rate limit. Remaining files will be retried next run.")
             sys.exit(0 if posted > 0 else 1)
 
-    print(f"Posted: {posted} ({len(tweets)} posts, {len(replies)} replies queued)")
+    # Process replies — same logic
+    for filepath in all_replies:
+        if posted_replies >= args.limit_replies:
+            break
+        print(f"Processing: {filepath.name}")
+        content = filepath.read_text().strip()
+
+        error = validate_content(content)
+        if error:
+            print(f"  Skipping: {error}")
+            filepath.rename(SKIPPED_DIR / filepath.name)
+            skipped += 1
+            continue
+
+        try:
+            if process_content(client, content):
+                filepath.rename(POSTED_DIR / filepath.name)
+                print("  Posted and archived")
+                posted_replies += 1
+            else:
+                print("  Failed")
+                failed = True
+                break
+        except RateLimitError as e:
+            print(f"\nWARNING: {e}")
+            posted = posted_tweets + posted_replies
+            print(f"Posted {posted} before rate limit. Remaining files will be retried next run.")
+            sys.exit(0 if posted > 0 else 1)
+
+    posted = posted_tweets + posted_replies
+    print(f"Done: {posted} posted, {skipped} skipped")
     sys.exit(1 if failed else 0)
 
 

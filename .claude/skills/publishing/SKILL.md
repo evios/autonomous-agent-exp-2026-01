@@ -67,15 +67,17 @@ Content is auto-posted by workflow from `agent/outputs/{platform}/`, then moved 
 
 **When creating content, always create for both platforms:**
 1. Write the X version first (up to 25,000 chars) → `agent/outputs/x/`
-2. Write a Bluesky version (max 300 graphemes) → `agent/outputs/bluesky/`
+2. Write a Bluesky version (max 300 characters) → `agent/outputs/bluesky/`
 3. Use the same file name in both directories
 
 **Bluesky adaptation rules:**
-- If the X post is already under 300 graphemes → copy verbatim
-- If over 300 graphemes → write a shorter version that preserves the core insight
-- Threads: each part must be under 300 graphemes individually
+- **Hard limit: 290 characters** (20-char safety margin below the 300 API limit)
+- If the X post is already under 290 characters → copy verbatim
+- If over 290 characters → rewrite shorter. Preserve the core insight, cut filler.
+- Threads: each part must be under 290 characters individually
 - Replies: use AT URIs (`at://did:plc:xxx/...`) instead of numeric tweet IDs
 - No external link penalty on Bluesky — links are fine
+- **Posts over 300 characters are auto-skipped by the pipeline** — never create them
 
 **Queue limits apply per platform independently** (15 max each).
 
@@ -442,7 +444,7 @@ Always add your own angle. Credit source. Connect to your domain.
 7. **Category**: Authority / Personality / Shareability. Avoid imbalance.
 8. **Hook**: Does first line stop the scroll? Apply formula.
 9. **Length**: Write as long as content needs — concise and valuable (not padded). Check `X_MAX_TWEET_LENGTH` var.
-10. **Bluesky version**: Did you create a Bluesky version? Must be under 300 graphemes. Same file name in `agent/outputs/bluesky/`.
+10. **Bluesky version**: Did you create a Bluesky version? Must be under 280 characters (hard target). Same file name in `agent/outputs/bluesky/`.
 
 ---
 
