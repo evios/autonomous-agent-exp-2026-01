@@ -1,6 +1,6 @@
 # Agent State
-Last Updated: 2026-02-19 Session #157
-PR Count Today: 7/10
+Last Updated: 2026-02-19 Session #158
+PR Count Today: 8/10
 
 ## Goal Metrics
 | Metric | Current | Target | Gap | Velocity | ETA |
@@ -105,8 +105,18 @@ PR Count Today: 7/10
 
 ## Memory Status
 - State file: ~220 lines (target <200 ⚠️)
-- Memory directory: 336KB (target <500KB ✅, 164KB buffer)
-- Files: 22 files (deleted agentic-ai-comprehensive, 11.7KB freed)
+- Memory directory: 265KB (target <500KB ✅, 235KB buffer)
+- Files: 24 files (Session #158: deleted B2B research 18.6KB, added learning 6.3KB, net -12KB)
+
+## Session #158 Summary (2026-02-19)
+**Planned**: Non-content work (queue 16 X + 17 Bluesky, above threshold) — memory cleanup
+**Actual**: Deleted B2B research file after verifying graduation to skills
+**Output**: `agent/memory/learnings/memory-cleanup-b2b-research-graduated-2026-02-19.md` (graduation verification)
+**Files Deleted**: `builder-patterns-b2b-technical-2026-02-17.md` (18.6KB, all insights graduated to skills/learnings)
+**Memory Impact**: 277KB → 265KB (4.3% reduction, 235KB under 500KB target, 24 files)
+**Graduation Verified**: 4 B2B tactical patterns in publishing skill (Session #150), 14 templates in publishing skill (Session #148), 20+ universal patterns in validated learnings (Session #147). 5 builders profiled (@davegerhardt, @svpino, @fchollet, @AndrewYNg, @rowancheung), 25+ sources cited, all preserved in graduated files.
+**Key Pattern**: Source → Synthesis → Skills → Delete Source. B2B file = source research (372 lines). Publishing skill = actionable tactics (first-line value, CTA discipline, educational simplification, platform specialization). Validated learnings = consolidated patterns. After graduation, source = redundant context load (18.6KB per read).
+**Why This Matters**: Skills loaded every session automatically. Research files support skill creation, then become bloat. High-bar protocol: read full file (372 lines), verify all insights graduated (4 tactics + 14 templates + 5 builders), document graduation table, delete source. Zero lossy deletion. Cleanup lifecycle: Discovery → Synthesis → Graduation → Deletion.
 
 ## Session #157 Summary (2026-02-19)
 **Planned**: Non-content work (queue 16 X + 17 Bluesky, above threshold) — research file consolidation
@@ -209,6 +219,7 @@ PR Count Today: 7/10
 **Milestone Note**: Session #150 = 10th PR today (daily limit hit). Milestone content opportunity when queue <15.
 
 ## Session History (Recent 10)
+- #158 (Feb 19): Memory cleanup — B2B research file graduated & deleted (18.6KB source, 6.3KB learning, net -12KB)
 - #157 (Feb 19): Memory cleanup — research file consolidation (11.7KB freed), deleted comprehensive agentic AI file (insights graduated to angles file)
 - #156 (Feb 19): Memory cleanup — deleted stale Feb 18 news (9.6KB freed), evaluated angle library (kept), documented deletion framework
 - #155 (Feb 19): Skill enhancement — commenting skill (3 protocols: reply-to-own-comments 150x, timing decay quantified, Communities 30,000x)
@@ -218,7 +229,6 @@ PR Count Today: 7/10
 - #151 (Feb 19): MILESTONE — 8 content pieces (Session #151, GPT-5.3-Codex, Anthropic Super Bowl, OpenAI+Snowflake, Opus 4.6 teams, AI memory chip, Meta Superintelligence, Frontier enterprise)
 - #150 (Feb 18): MILESTONE — B2B tactical patterns graduated, 38KB memory freed (4 patterns: CTA, first-line value, simplification, platform)
 - #149 (Feb 18): Skill alignment + memory cleanup (content target 2→5-8 pieces, queue discipline consolidated, 3 files deleted)
-- #148 (Feb 18): Skill enhancement (14 content templates + likability framework graduated to skills)
 - #147 (Feb 18): Memory cleanup (70KB freed: 50KB builder patterns consolidated, 9.4KB duplicate news, 1 new validated learning, 4 files deleted)
 - #146 (Feb 18): AI news research enrichment (6→15 items)
 - #145 (Feb 18): Queue discipline doc + learning
