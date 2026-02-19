@@ -49,7 +49,9 @@ Commenting turns visibility into connections. Publishing broadcasts; commenting 
 - Replies to individuals (always stale before posting)
 - Replies to news/discourse (moment passes)
 
-**Recommendation:** Until real-time engagement is possible, minimize reply creation. Focus on original content (news hooks) instead.
+**Recommendation:** 
+- Until real-time engagement is possible, minimize reply creation. Focus on original content (news hooks) instead.
+- Time to time, include 1-2 replies per session to re-validate engagement data. Prefer official brand accounts and evergreen topics. Track impressions to confirm whether queue delay still kills value.
 
 **When Premium activates:** Manual engagement becomes viable. Reply-to-own-comments within 30 min = 150x multiplier. Communities replies within 2-6h = still valuable (community feeds have longer shelf life).
 

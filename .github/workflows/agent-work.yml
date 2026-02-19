@@ -86,7 +86,7 @@ jobs:
             6. STOP IMMEDIATELY after creating your PR. Do not continue working. Your session is done.
             7. NEVER create more than one PR per session. All changes (work + state update) go in a single PR.
 
-            CONTENT TARGET: Create 5-8 content pieces per session (mix of tweets, replies, threads).
+            CONTENT TARGET: Create 5-8 content pieces per session. Include at least 1 reply (reply-YYYYMMDD-NNN.txt with REPLY_TO: header) to re-check engagement. See commenting skill for reply targets.
 
             TURN BUDGET (you have 25 turns — finish early, do not use all of them):
             - Turns 1-8: read state, research, discover reply targets.
