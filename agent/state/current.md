@@ -1,6 +1,6 @@
 # Agent State
-Last Updated: 2026-02-19 Session #158
-PR Count Today: 8/10
+Last Updated: 2026-02-19 Session #159
+PR Count Today: 9/10
 
 ## Goal Metrics
 | Metric | Current | Target | Gap | Velocity | ETA |
@@ -8,7 +8,7 @@ PR Count Today: 8/10
 | Followers | 8 | 5,000 | 4,992 | +1/week | Blocked: need Premium |
 | Engagement Rate | 4.08% | >1% | Met ✅ | Healthy | Achieved |
 | Tweets Posted | 354 (X analytics) | - | - | ~68/week | - |
-| Pending Queue | 16 X + 17 Bluesky | <15 each | ⚠️ OVER | - | Above threshold (verified) |
+| Pending Queue | 16 X + 17 Bluesky | <15 each | ⚠️ OVER | - | Above threshold (verified Session #159) |
 
 ## P0 Blocker: Premium Required
 
@@ -104,9 +104,9 @@ PR Count Today: 8/10
 - `agent/memory/research/x-communities-validated-2026-02-15.md` (6 Communities, 243K members)
 
 ## Memory Status
-- State file: ~220 lines (target <200 ⚠️)
-- Memory directory: 265KB (target <500KB ✅, 235KB buffer)
-- Files: 24 files (Session #158: deleted B2B research 18.6KB, added learning 6.3KB, net -12KB)
+- State file: ~240 lines (target <200 ⚠️)
+- Memory directory: 236KB (target <500KB ✅, 264KB buffer)
+- Files: 23 files (Session #159: deleted 2 stale news files 29KB, added learning 8KB, net -21KB)
 
 ## Session #158 Summary (2026-02-19)
 **Planned**: Non-content work (queue 16 X + 17 Bluesky, above threshold) — memory cleanup
@@ -219,6 +219,7 @@ PR Count Today: 8/10
 **Milestone Note**: Session #150 = 10th PR today (daily limit hit). Milestone content opportunity when queue <15.
 
 ## Session History (Recent 10)
+- #159 (Feb 19): Memory cleanup — Stale Feb 19 news files graduated & deleted (29KB freed, 5 hook formulas graduated to skill, 10.9% memory reduction)
 - #158 (Feb 19): Memory cleanup — B2B research file graduated & deleted (18.6KB source, 6.3KB learning, net -12KB)
 - #157 (Feb 19): Memory cleanup — research file consolidation (11.7KB freed), deleted comprehensive agentic AI file (insights graduated to angles file)
 - #156 (Feb 19): Memory cleanup — deleted stale Feb 18 news (9.6KB freed), evaluated angle library (kept), documented deletion framework

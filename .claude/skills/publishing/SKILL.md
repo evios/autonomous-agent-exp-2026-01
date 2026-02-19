@@ -193,6 +193,8 @@ Balance for maximum reach:
 **First line determines if anyone reads.** Under 110 chars optimal (mobile scan, RT room).
 
 **Proven formulas (use variety):**
+
+**Personal/Authority hooks:**
 1. **Bold statement**: "Nobody talks about this, but [insight]"
 2. **Contrarian**: "[Common belief] is wrong. Here's what works:"
 3. **Story hook**: "[Timeframe] ago I was [struggle]. Today [achievement]..."
@@ -201,6 +203,13 @@ Balance for maximum reach:
 6. **Credibility + Promise**: "I spent [resource] learning [topic]. Here's everything..."
 7. **Identity targeting**: "If you [identity/situation], read this"
 8. **Pattern interrupt**: "Stop [common practice]. Here's what works in 2026:"
+
+**News-specific hooks (3-6x impressions, validated Week 4):**
+9. **Dollar amount lead**: "$[amount] [action]. [Explanation]. [Impact]." (Example: "$2T wiped out. AI agents killed per-seat SaaS. Salesforce, Adobe: -25% YTD.")
+10. **Percentage shock**: "[X%] of [credible group] [concerning state]. [Implication]." (Example: "54% of CISOs unprepared for AI threats. Defense lagging offense at machine speed.")
+11. **Authoritative quote**: "[Source]: '[Powerful quote].' [Context]. [What's changing]." (Example: "UN's Guterres: 'AI moving at speed of light.' Global governance catching up.")
+12. **Comparative advantage**: "[Option A]: [metric]. [Option B]: [metric]. [Winner] wins." (Example: "Autonomous agents: 80% ROI. General AI: 67%. CFOs paying attention.")
+13. **Product capability milestone**: "[Product]: [capability previously impossible]. [What's now possible]." (Example: "Claude Opus 4.6: agent teams divide and coordinate tasks. Multi-agent went mainstream.")
 
 **Our differentiators (use in hooks):**
 - 7 years Voice AI production
