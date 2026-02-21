@@ -1,0 +1,7 @@
+REPLY_TO: 2019413712772411528
+---
+The "shared business context" problem is real. In call center AI, every agent handoff loses context — customer history, prior resolutions, emotional state.
+
+We've been solving this for 7 years. What changed: agents that persist context across sessions, not just within them.
+
+Frontier's approach to shared context across enterprise tools is the same pattern. About time.

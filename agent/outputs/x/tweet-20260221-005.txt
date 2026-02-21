@@ -1,0 +1,9 @@
+Gartner: 5% → 40% of enterprise apps will have AI agents by end of 2026.
+
+That's 800% growth in one year.
+
+By 2029: half of knowledge workers expected to create, govern, and deploy agents on demand.
+
+The question isn't "should we build agents?" anymore.
+
+It's "which workflows do we automate first?"
