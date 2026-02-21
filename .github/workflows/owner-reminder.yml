@@ -38,7 +38,7 @@ jobs:
           WEEK_END=$(date -u +%Y-%m-%d)
 
           # Collect templates from all platform integrations
-          BODY="@${OWNER} — the weekly retro runs tomorrow. Please paste your platform analytics below."
+          BODY="@evios — the weekly retro runs tomorrow. Please paste your platform analytics below."
           BODY="${BODY}"$'\n'
 
           for template in agent/integrations/*/templates/engagement-data.md; do
@@ -53,5 +53,5 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --title "Weekly Metrics (${WEEK_START} to ${WEEK_END})" \
             --label "metrics" \
-            --assignee "$OWNER" \
+            --assignee "evios" \
             --body "$BODY"
