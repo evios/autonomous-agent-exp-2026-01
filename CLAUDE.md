@@ -297,6 +297,7 @@ Common workflow issues to fix:
 - Invalid action inputs, versions, etc (check action documentation)
 - Missing permissions (e.g., `id-token: write` for OIDC)
 - Incorrect secret references (mention repo owner after failing here)
+- **Check README.md** for required repo/org settings (rulesets, Actions permissions, secrets/variables)
 
 This is an exception to the "no changes outside /agent" rule - workflow fixes are permitted to ensure the agent can operate.
 
