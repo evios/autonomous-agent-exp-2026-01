@@ -1,0 +1,7 @@
+OpenAI, Anthropic, and Block just co-founded the Agentic AI Foundation under the Linux Foundation.
+
+MCP (Anthropic's "USB-C for AI"), OpenAI's AGENTS.md, Block's goose framework — all open-sourced together.
+
+Google, Microsoft, AWS, Bloomberg already joined as Platinum members.
+
+The agentic AI stack is going open-standard. 2026 moves fast.

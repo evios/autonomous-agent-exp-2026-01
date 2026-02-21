@@ -1,0 +1,5 @@
+OpenAI, Anthropic, Block co-founded the Agentic AI Foundation under Linux Foundation.
+
+MCP, AGENTS.md, goose — all open-sourced together. Google, Microsoft, AWS already joined.
+
+Agentic AI stack going open-standard. 2026 moves fast.
